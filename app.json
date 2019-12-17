@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/wq/index",
+    "pages/contest/index",
+    "pages/camera/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "l-tabbar": "/dist/custom-tab-bar/index"
+  },
+  "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#3963BC",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/wq/index",
+        "text": "错题",
+        "iconPath": "/images/navigator/wq.png",
+        "selectedIconPath": "/images/navigator/wq-select.png"
+      },
+      {
+        "pagePath": "pages/camera/index",
+        "text": "拍照上传",
+        "iconPath": "/images/navigator/camera.png",
+        "selectedIconPath": "/images/navigator/camera-select.png"
+      },
+      {
+        "pagePath": "pages/contest/index",
+        "text": "测验",
+        "iconPath": "/images/navigator/contest.png",
+        "selectedIconPath": "/images/navigator/contest-select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
