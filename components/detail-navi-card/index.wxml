@@ -8,6 +8,6 @@
         <text class="detail-navi-desc"> {{desc}}</text>
       </view>
     </view>
-    <image class="navi-button" src="/images/right-arrow.png" />
+    <image class="navi-button" src="/images/static/right-arrow.png" />
   </view>
 </navigator>

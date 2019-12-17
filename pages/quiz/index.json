@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#3963BC",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "content-card": "/components/content-card/index",
+    "detail-navi-card": "/components/detail-navi-card/index",
+    "l-button": "/dist/button/index",
+    "l-dialog": "/dist/dialog/index",
+    "l-radio": "/dist/radio/index",
+    "l-radio-group": "/dist/radio-group/index",
+    "l-count-selector": "/dist/count-selector/index"
+  }
+}

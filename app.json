@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/wq/index",
-    "pages/contest/index",
+    "pages/quiz/index",
     "pages/camera/index"
   ],
   "window": {
@@ -32,7 +32,7 @@
         "selectedIconPath": "/images/navigator/camera-select.png"
       },
       {
-        "pagePath": "pages/contest/index",
+        "pagePath": "pages/quiz/index",
         "text": "测验",
         "iconPath": "/images/navigator/contest.png",
         "selectedIconPath": "/images/navigator/contest-select.png"

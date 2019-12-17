@@ -1,0 +1,77 @@
+<!--pages/quiz/index.wxml-->
+<view class="container">
+  <view class="header">
+    <image class="header-bg" src="/images/static/index_bg.png"></image>
+    <text class="header-desc">
+      <text class="header-name">我的测验</text>
+    </text>
+  </view>
+  <view class="button-wrapper">
+    <l-button 
+      l-class="button" 
+      icon="add" 
+      icon-size="28" 
+      width="690"
+      height="150"
+      bind:lintap="onShowDioTap"
+    >
+      新的测验
+    </l-button>
+  </view>
+  <view class="section">
+    <view class="section-content">
+      <detail-navi-card
+        wx:for="{{historyQuizzes}}"
+        wx:for-item="historyQuizzes"
+        wx:key="index"
+        icon="{{historyQuizzes.icon}}"
+        title="{{historyQuizzes.date}}"
+        componentsPath="{{historyQuizzes.componentsPath}}"
+        desc="{{historyQuizzes.desc}}"
+      />
+    </view>
+  </view>
+  <!-- popup 新建测验弹出表单 -->
+  <l-dialog
+    show="{{currentConf.show}}"
+    type="{{currentConf.type}}"
+    show-close="{{currentConf.showClose}}"
+    title="{{currentConf.title}}"
+    show-title="{{currentConf.showTitle}}"
+    content="{{currentConf.content}}" 
+    cancel-text="{{currentConf.cancelText}}" 
+    cancel-color="{{currentConf.cancelColor}}" 
+    confirm-text="{{currentConf.confirmText}}"  
+    confirm-color="{{currentConf.confirmColor}}"
+    bind:lincancel="onCancelTap"
+    bind:linconfirm="onConfirmTap"
+  >
+    <content-card name="设置题目数量：">
+      <l-count-selector 
+        l-class="count" 
+        min="{{countConfig.min}}" 
+        count="{{countConfig.count}}" 
+        max="{{countConfig.max}}" 
+        step="{{countConfig.step}}" 
+        disabled="{{countConfig.disabled}}" 
+        bind:linout="onOut"
+      />
+    </content-card>
+    <content-card name="选择测验类别：">
+      <l-radio-group 
+        current="1" 
+        none-checked="{{false}}"
+        placement="column"
+        l-class="l-radio-group">
+        <l-radio
+          l-class="l-radio"
+          wx:for="{{categories}}"
+          wx:key="{{item.id}}" 
+          key="{{item.id}}"
+          placement="left">
+          {{item.type}}
+        </l-radio>
+      </l-radio-group>
+    </content-card>
+  </l-dialog>
+</view>

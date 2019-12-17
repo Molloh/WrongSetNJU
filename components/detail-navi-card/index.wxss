@@ -33,9 +33,9 @@
 
 .detail-navi-name {
   font-size:32rpx;
-font-weight:600;
-color:rgba(69,82,107,1);
-line-height:44rpx;
+  font-weight:600;
+  color:rgba(69,82,107,1);
+  line-height:44rpx;
 }
 
 .detail-navi-desc {
