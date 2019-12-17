@@ -1,9 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#3963BC",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "content-card": "/components/content-card/index",
-    "l-dialog": "/dist/dialog/index",
-    "l-button": "/dist/button/index"
-  }
-}
