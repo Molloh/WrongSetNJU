@@ -1,2 +1,18 @@
 <!--pages/contest/index.wxml-->
-<text>pages/contest/index.wxml</text>
+<view class="container">
+  <view class="header">
+    <image class="header-bg" src="/images/static/index_bg.png"></image>
+    <text class="header-desc">
+      <text class="header-name">我的测验</text>
+    </text>
+  </view>
+  <view class="button-wrapper">
+    <l-button 
+      l-class="button" 
+      icon="add" 
+      icon-size="32" 
+      size="large">
+      新的测验
+    </l-button>
+  </view>
+</view>

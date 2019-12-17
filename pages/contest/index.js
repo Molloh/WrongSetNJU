@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    historyContest: [
+      {
+        title: "2019/12/17",
+        type: 2
+      }
+    ]
+      
+    
   },
 
   /**
