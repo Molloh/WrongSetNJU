@@ -21,10 +21,10 @@ Component({
    */
   methods: {
     onChangeAnswer(e) {
-      console.log(e);
+      let { value } = { ...e.detail }
       this.triggerEvent(
-        'onChangeAnswer',
-        { tmp: 1 }
+        'answerEvent',
+        { myAnswer: value }
       );
     }
   }

@@ -1,5 +1,4 @@
 <!--components/quiz-new-card/index.wxml-->
-<!--components/quiz-wq-title/index.wxml-->
 <view class='card'>
   <view class='navi-title'>
     <view class="title-left">
@@ -15,9 +14,20 @@
     <view class="content">
       <view class="sub-content">
         <text class="title">题目描述：</text>
-        <text >{{desc}}</text>
+        <text class="input">{{desc}}</text>
       </view>
-      <l-textarea  placeholder="写下你的答案..." bind:linblur="onChangeAnswer"/>
+      <view class="text-wrapper">
+        <view class="sub-wrapper">
+          <text class="title">答案：</text>
+        </view>
+        <l-textarea
+          l-class="textarea"
+          indicator="{{false}}"
+          maxlength="-1"
+          placeholder="写下你的答案..."
+          bind:linblur="onChangeAnswer"
+        />
+      </view>
     </view>
   </l-card>
 </view>

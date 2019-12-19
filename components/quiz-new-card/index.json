@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+        "l-card": "/dist/card/index",
+        "l-textarea": "/dist/textarea/index"
+  }
 }
