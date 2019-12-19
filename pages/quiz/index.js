@@ -12,37 +12,37 @@ Page({
         date: "数学",
         desc: "2019/12/17  正确率：9/10",
         icon: donePath,
-        componentsPath: "/pages/quiz/details?id=1"
+        componentsPath: "/pages/quiz/details/index?id=1"
       },
       {
         date: "英语",
         desc: "2019/12/17  尚未批改",
         icon: todoPath,
-        componentsPath: "/pages/quiz/details?id=1"
+        componentsPath: "/pages/quiz/details/index?id=1"
       },
       {
         date: "物理",
         desc: "2019/12/17 正确率：9/10",
         icon: donePath,
-        componentsPath: "/pages/quiz/details?id=1"
+        componentsPath: "/pages/quiz/details/index?id=1"
       },
       {
         date: "化学",
         desc: "2019/12/17 正确率：9/10",
         icon: donePath,
-        componentsPath: "/pages/quiz/details?id=1"
+        componentsPath: "/pages/quiz/details/index?id=1"
       },
       {
         date: "语文",
         desc: "2019/12/17 正确率：9/10",
         icon: donePath,
-        componentsPath: "/pages/quiz/details?id=1"
+        componentsPath: "/pages/quiz/details/index?id=1"
       },
       {
         date: "数学",
         desc: "2019/12/17 正确率：9/10",
         icon: donePath,
-        componentsPath: "/pages/quiz/details?id=1"
+        componentsPath: "/pages/quiz/details/index?id=1"
       }
     ],
     categories: [
@@ -69,7 +69,11 @@ Page({
     ],
     quizConfig,
     countConfig,
-    currentConf: {}    
+    currentConf: {},    
+    quizForm: {
+      num: 10,
+      category: "数学"
+    }
   },
 
   onLoad: function (options) {
@@ -78,47 +82,35 @@ Page({
 
   // 确定按钮
   onConfirmTap(e) {
-    setTimeout(() => {
-      wx.showToast({
-        title: '点击了确定～',
-        icon: 'none'
-      })
-    }, 100)
+    wx.navigateTo({
+      url: '../quiz/new-quiz/index?num=' + this.data.quizForm.num + '&category=' + this.data.quizForm.category
+    })
+    console.log('../quiz/new-quiz/index?num=' + this.data.quizForm.num + '&category=' + this.data.quizForm.category);
   },
 
-  // 取消按钮
-  onCancelTap(e) {
-    setTimeout(() => {
-      wx.showToast({
-        title: '点击了取消～',
-        icon: 'none'
-      })
-    }, 100)
-  },
-
-  // 显示 dio
-  onShowDioTap(e) {
-    const config = this.data.quizConfig
+  // 显示新建测试dialog
+  onShowNewQuizTap(e) {
+    const config = this.data.quizConfig;
     this.setData({
       currentConf: config
-    })
+    });
   },
   
-  // 选择
-  onChange(e) {
-    const {
-      currentKey
-    } = {
-      ...e.detail
-    };
+  // 更改题目数量
+  onChangeNum(e) {
+    const { count } = { ...e.detail };
     this.setData({
-      currentKey
+      'quizForm.num': count
     });
   },
 
-  onOut() {
-    wx.showToast({
-      title: '超出限制',
+  // 更改测验科目
+  onChangeCategory(e) {
+    const { currentKey } = { ...e.detail };
+    const currentType = this.data.categories[currentKey - 1].type;
+    this.setData({
+      'quizForm.category': currentType
     });
   },
+
 })

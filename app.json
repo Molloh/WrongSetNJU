@@ -2,7 +2,9 @@
   "pages": [
     "pages/wq/index",
     "pages/quiz/index",
-    "pages/camera/index"
+    "pages/camera/index",
+    "pages/quiz/new-quiz/index",
+    "pages/quiz/details/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,8 +36,8 @@
       {
         "pagePath": "pages/quiz/index",
         "text": "测验",
-        "iconPath": "/images/navigator/contest.png",
-        "selectedIconPath": "/images/navigator/contest-select.png"
+        "iconPath": "/images/navigator/quiz.png",
+        "selectedIconPath": "/images/navigator/quiz-select.png"
       }
     ]
   },

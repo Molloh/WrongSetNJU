@@ -13,7 +13,7 @@
       icon-size="28" 
       width="690"
       height="150"
-      bind:lintap="onShowDioTap"
+      bind:lintap="onShowNewQuizTap"
     >
       新的测验
     </l-button>
@@ -43,7 +43,6 @@
     cancel-color="{{currentConf.cancelColor}}" 
     confirm-text="{{currentConf.confirmText}}"  
     confirm-color="{{currentConf.confirmColor}}"
-    bind:lincancel="onCancelTap"
     bind:linconfirm="onConfirmTap"
   >
     <content-card name="设置题目数量：">
@@ -54,7 +53,7 @@
         max="{{countConfig.max}}" 
         step="{{countConfig.step}}" 
         disabled="{{countConfig.disabled}}" 
-        bind:linout="onOut"
+        bind:lintap="onChangeNum"
       />
     </content-card>
     <content-card name="选择测验类别：">
@@ -62,11 +61,12 @@
         current="1" 
         none-checked="{{false}}"
         placement="column"
-        l-class="l-radio-group">
+        l-class="l-radio-group"
+        bind:linchange="onChangeCategory">
         <l-radio
           l-class="l-radio"
           wx:for="{{categories}}"
-          wx:key="{{item.id}}" 
+          wx:key="id" 
           key="{{item.id}}"
           placement="left">
           {{item.type}}

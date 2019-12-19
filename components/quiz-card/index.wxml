@@ -1,0 +1,32 @@
+<!--components/quiz-wq-title/index.wxml-->
+<view class='card'>
+  <view class='navi-title'>
+    <view class="title-left">
+      <view class="line"></view>
+      <text>{{date}}</text>
+    </view>
+    <view class="status">
+      <l-icon name="{{isCorrect?'success':'error'}}" color="{{isCorrect?'#6dc37d':'#f36479'}}" size="28"/>
+    </view>
+  </view>
+  <l-card 
+    class="card"
+    type="cover"
+    image="{{picture}}"
+    title="">
+    <view class="content">
+      <view class="sub-content">
+        <text class="title">题目描述：</text>
+        <text >{{desc}}</text>
+      </view>
+      <view class="sub-content"> 
+        <text class="title">正确答案：</text>
+        <text>{{answer}}</text>
+      </view>
+      <view class="sub-content">
+        <text class="title">我的答案：</text>
+        <text>{{myAnswer}}</text>
+      </view>
+    </view>
+  </l-card>
+</view>

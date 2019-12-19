@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "content-title": "/components/content-title/index",
+    "quiz-new-card": "/components/quiz-new-card/index"
+  }
+}

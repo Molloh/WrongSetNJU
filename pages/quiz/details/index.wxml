@@ -1,0 +1,14 @@
+<!--pages/quiz/old-quiz/index.wxml-->
+<content-title name="{{category}}" describe="{{desc}}">
+  <quiz-card 
+    wx:for="{{wqs}}"
+    wx:for-item="wq"
+    wx:key="id"
+    date="{{wq.date}}"
+    isCorrect="{{wq.isCorrect}}"
+    picture="{{wq.picture}}"
+    desc="{{wq.desc}}"
+    answer="{{wq.answer}}"
+    myAnswer="{{wq.myAnswer}}"
+  />
+</content-title>

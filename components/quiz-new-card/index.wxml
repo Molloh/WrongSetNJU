@@ -1,0 +1,23 @@
+<!--components/quiz-new-card/index.wxml-->
+<!--components/quiz-wq-title/index.wxml-->
+<view class='card'>
+  <view class='navi-title'>
+    <view class="title-left">
+      <view class="line"></view>
+      <text>{{date}}</text>
+    </view>
+  </view>
+  <l-card 
+    class="card"
+    type="cover"
+    image="{{picture}}"
+    title="">
+    <view class="content">
+      <view class="sub-content">
+        <text class="title">题目描述：</text>
+        <text >{{desc}}</text>
+      </view>
+      <l-textarea  placeholder="写下你的答案..." bind:linblur="onChangeAnswer"/>
+    </view>
+  </l-card>
+</view>

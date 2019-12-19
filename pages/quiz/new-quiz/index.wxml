@@ -1,0 +1,11 @@
+<!--pages/quiz/new-quiz/index.wxml-->
+<content-title name="{{category}}" describe="{{date}}">
+  <quiz-new-card 
+    wx:for="{{wqs}}"
+    wx:for-item="wq"
+    wx:key="id"
+    picture="{{wq.picture}}"
+    desc="{{wq.desc}}"
+    date="{{wq.date}}"
+  />
+</content-title>

@@ -1,0 +1,4 @@
+/* pages/quiz/details/index.wxss */
+page {
+  background: #fff;
+}
