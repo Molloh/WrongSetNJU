@@ -9,10 +9,14 @@ App({
           console.log(res.code);
           //发起网络请求
           wx.request({
-            url: 'https://netwx.c-leon.top/user/',
+            url: 'https://netwx.c-leon.top/auth/login',
             data: {
               code: res.code
             },
+            header:{
+              'content-type':'application/json'
+            },
+            method: 'POST',
             success: res => {
               console.log(res);
             }
