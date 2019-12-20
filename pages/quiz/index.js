@@ -99,9 +99,9 @@ Page({
           }
           hisArr.push(tmp);
         }
-        this.setData({
-          historyQuizzes: hisArr
-        })
+        // this.setData({
+        //   historyQuizzes: hisArr
+        // })
       },
     });
     

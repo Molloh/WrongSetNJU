@@ -1,15 +1,10 @@
 const app = getApp();
 const prefix = "https://netwx.c-leon.top/api/";
 const wxRequest = (params, url) => {
-  let auth = app.globalData.openid;
-  if(auth) {}
-  else {
-    app.loginCallback = openid => {
-      if(openid != '')
-        auth = openid;
-    }
+  let auth = wx.getStorageSync("openid")
+  if(auth == '') {
+    app.onLogin();
   }
-  console.log("aaaaa: " + auth);
   wx.request({
     url: prefix + params.url,
     data: params.data || '',
