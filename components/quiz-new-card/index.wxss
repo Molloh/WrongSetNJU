@@ -61,6 +61,7 @@
   color:rgba(69,82,107,1);
   line-height:44rpx;
 }
+
 .title {
   font-size:32rpx;
   font-weight:600;

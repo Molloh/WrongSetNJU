@@ -17,15 +17,15 @@
     <view class="content">
       <view class="sub-content">
         <text class="title">题目描述：</text>
-        <text >{{desc}}</text>
+        <text class="desc">{{desc}}</text>
       </view>
       <view class="sub-content"> 
         <text class="title">正确答案：</text>
-        <text>{{answer}}</text>
+        <text class="desc">{{answer}}</text>
       </view>
       <view class="sub-content">
         <text class="title">我的答案：</text>
-        <text>{{myAnswer}}</text>
+        <text class="desc">{{myAnswer}}</text>
       </view>
     </view>
   </l-card>

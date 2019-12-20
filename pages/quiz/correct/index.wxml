@@ -1,12 +1,15 @@
-<!--pages/quiz/new-quiz/index.wxml-->
-<content-title name="{{category}}" describe="{{date}}">
-  <quiz-new-card 
+<!--pages/quiz/correct/index.wxml-->
+<content-title name="{{category}}" describe="{{desc}}">
+  <quiz-correct-card
     wx:for="{{wqs}}"
     wx:for-item="wq"
     wx:key="id"
+    date="{{wq.date}}"
+    isCorrect="{{wq.isCorrect}}"
     picture="{{wq.picture}}"
     desc="{{wq.desc}}"
-    date="{{wq.date}}"
+    answer="{{wq.answer}}"
+    myAnswer="{{wq.myAnswer}}"
   />
   <l-button 
     l-class="button" 
@@ -16,7 +19,7 @@
     height="100"
     bind:lintap="onShowSubmitTap"
   >
-    提交
+    完成批改
   </l-button>
   <l-dialog
     show="{{currentConf.show}}"

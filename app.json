@@ -4,7 +4,8 @@
     "pages/quiz/index",
     "pages/camera/index",
     "pages/quiz/new-quiz/index",
-    "pages/quiz/details/index"
+    "pages/quiz/details/index",
+    "pages/quiz/correct/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

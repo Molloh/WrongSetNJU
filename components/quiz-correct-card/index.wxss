@@ -1,1 +1,73 @@
 /* components/quiz-correct-card/index.wxss */
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; 
+}
+
+.navi-title {
+  display: flex;
+  justify-content: space-between;
+  width: 750rpx;
+  height: 100rpx;
+  align-items: center;
+  border-radius: 12rpx 12rpx 0 0 ;
+  /* background: #ccc; */
+}
+
+.line {
+  width: 8rpx;
+  height: 28rpx;
+  background: #3963BC;
+  margin-right: 22rpx;
+  margin-left: 30rpx;
+}
+
+.title-left {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.title-left text {
+  font-size: 28rpx;
+  color: #3683d6;
+}
+
+.status {
+  size: 44rpx;
+  margin-right: 32rpx;
+  line-height: 44rpx;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.desc {
+  font-size:32rpx;
+  color:rgba(69,82,107,1);
+  line-height:44rpx;
+}
+
+.title {
+  font-size:32rpx;
+  font-weight:600;
+  color:rgba(69,82,107,1);
+  line-height:44rpx;
+}
+
+.l-radio {
+  font-size: 32rpx;
+  padding-left: 32rpx;
+  box-sizing: border-box;
+  color: rgba(140, 152, 174, 1) !important;
+}

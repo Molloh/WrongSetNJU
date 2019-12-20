@@ -66,7 +66,7 @@ Page({
       type: "confirm",
       showTitle: false,
       title: "",
-      content: "是否提交？",
+      content: "是否提交并开始批改？",
       confirmText: '确定',
       confirmColor: '#3683d6',
       cancelText: '取消',
@@ -100,13 +100,16 @@ Page({
     });
   },
 
-  onCancelSubmit(e) {
-    setTimeout(() => {
-      wx.showToast({
-        title: '点击了取消～',
-        icon: 'none'
-      })
-    }, 100)
+  onConfirmSubmit(e) {
+    let currentQuiz = {
+      category: this.data.category,
+      date: this.data.date,
+      wqs: this.data.wqs
+    };
+    wx.setStorageSync('tmp_quiz', currentQuiz);
+    wx.navigateTo({
+      url: '../correct/index',
+    })
   },
 
   /**
