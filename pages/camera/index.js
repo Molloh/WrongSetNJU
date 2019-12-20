@@ -22,10 +22,11 @@ Page({
       id: 4,
       name: '其他',
     }],
-    photo:"",
+    photourl:"",
     question: "",
     answer:"",
     cata:"",
+    tempcat:"",
     currentKey:null,
   },
   onChange(e) {
@@ -38,6 +39,17 @@ Page({
       currentKey
     });
     console.log(this.data.currentKey);
+  },
+  addPicture: function (e) {
+    const{
+      current
+    }={
+      ...e.detail
+    };
+    this.setData({
+      photourl:current[0].url
+    })
+    console.log(this.data.photourl);
   },
   clear() {
     this.setData({
@@ -63,6 +75,41 @@ Page({
       icon: 'picture',
       duration: 2000,
       iconStyle: 'color:#7ec699; size: 60'
+    })
+  }, 
+  onLoadTap: function () {
+    if (this.data.currentKey==1){
+      this.setData({
+        cata:"数学"
+      })
+    } else if (this.data.currentKey == 2) {
+      this.setData({
+        cata: "语文"
+      })
+    } else if (this.data.currentKey == 3) {
+      this.setData({
+        cata: "英语"
+      })
+    }else{
+      this.setData({
+        cata:this.data.tempcata
+      })
+    }
+    console.log(this.data.photourl);
+    console.log(this.data.question);
+    console.log(this.data.answer);
+    console.log(this.data.cata);
+    wx.uploadFile({
+      url: '',
+      filePath: this.data.photourl,
+      name: 'file',
+      formData: {
+        
+        'question': this.data.question,
+        'answer': this.data.answer,
+        'cata': this.data.cata,
+        
+      },
     })
   },
   onRemoveTap(e) {
@@ -90,6 +137,7 @@ Page({
     let {value} = {...e.detail};
     this.setData({
       answer:value
+      
     })
 
     console.log(this.data.answer);
@@ -97,10 +145,10 @@ Page({
   onTextInput2(e) {
     let { value } = { ...e.detail };
     this.setData({
-      cata:value 
+      tempcata:value 
     })
-    console.log("hhhhh");
-    console.log(this.data.cata); 
+    
+    console.log(this.data.tempcata); 
   },
   /**
    * 生命周期函数--监听页面加载
@@ -136,6 +184,7 @@ Page({
   onUnload: function () {
 
   },
+  
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

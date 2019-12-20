@@ -45,9 +45,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    answer:null,
-    question:null,
-    tag:null,
-    imageurl:null
+    
   }
 })

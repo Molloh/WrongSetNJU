@@ -10,18 +10,18 @@
   <!-- <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view> -->
-  <view class="section">
-    <view class="section-content">
-      <detail-navi-card
-        wx:for="{{historyQuizzes}}"
-        wx:for-item="historyQuizzes"
-        wx:key="index"
-        title="{{historyQuizzes.date}}错题本"
-        componentsPath="{{historyQuizzes.componentsPath}}"
-        
-      />
-    </view>
-  </view>
+  
+  <content-title name="{{category}}" describe="{{desc}}">
+  <quiz-card1
+    wx:for="{{wqs}}"
+    wx:for-item="wq"
+    wx:key="id"
+    category="{{wq.category}}"
+    picture="{{wq.picture}}"
+    desc="{{wq.desc}}"
+    answer="{{wq.answer}}"
+  />
+  </content-title>
 
 </view>
 

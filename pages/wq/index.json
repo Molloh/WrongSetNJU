@@ -8,6 +8,7 @@
     "l-dialog": "/dist/dialog/index",
     "l-radio": "/dist/radio/index",
     "l-radio-group": "/dist/radio-group/index",
-    "l-count-selector": "/dist/count-selector/index"
+    "l-count-selector": "/dist/count-selector/index",
+    "quiz-card1": "/components/quiz-card1/index"
   }
 }

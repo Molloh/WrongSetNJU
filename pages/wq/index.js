@@ -8,32 +8,53 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    historyQuizzes: [
+    id: 0,
+    
+   
+    wqs: [
       {
-        date: "数学",
-        
-        componentsPath: "/pages/quiz/details/index"
+        id: 0,
+        picture: "/images/test/test-wq.png",
+        desc: "1+1=?",
+        category: "数学",
+        answer: "2",
       },
       {
-        date: "英语",
+        id: 1,
+        picture: "/images/test/test-wq.png",
+        desc: "1+1=?",
+        category: "数学",
+        answer: "2",
        
-        componentsPath: "/pages/quiz/details/index"
       },
       {
-        date: "物理",
+        id: 2,
+        picture: "/images/test/test-wq.png",
+        desc: "1+1=?",
+        category: "数学",
         
-        componentsPath: "/pages/quiz/details/index"
-      },
-      {
-        date: "化学",
-        componentsPath: "/pages/quiz/details/index"
-      },
-      {
-        date: "语文",
-        componentsPath: "/pages/quiz/details/index"
-      }
+        answer: "2",
       
-    ],
+      },
+      {
+        id: 3,
+        picture: "/images/test/test-wq.png",
+        desc: "1+1=?",
+        category: "数学",
+        
+        answer: "2",
+        
+      },
+      {
+        id: 4,
+        picture: "/images/test/test-wq.png",
+        desc: "1+1=?",
+        category: "数学",
+        
+        answer: "2",
+        
+      }
+    ]
   },
   bindViewTap: function () {
     wx.navigateTo({

@@ -1,0 +1,24 @@
+<!--components/quiz-wq-title/index.wxml-->
+<view class='card'>
+  
+  <l-card 
+    class="card"
+    type="cover"
+    image="{{picture}}"
+    title="">
+    <view class="content">
+      <view class="sub-content">
+        <text class="title">题目类别：</text>
+        <text >{{category}}</text>
+      </view>
+      <view class="sub-content">
+        <text class="title">题目描述：</text>
+        <text >{{desc}}</text>
+      </view>
+      <view class="sub-content"> 
+        <text class="title">正确答案：</text>
+        <text>{{answer}}</text>
+      </view>
+    </view>
+  </l-card>
+</view>
