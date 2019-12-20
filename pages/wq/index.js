@@ -1,12 +1,39 @@
 // pages/wq/index.js
 // 获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
+    
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    historyQuizzes: [
+      {
+        date: "数学",
+        
+        componentsPath: "/pages/quiz/details/index"
+      },
+      {
+        date: "英语",
+       
+        componentsPath: "/pages/quiz/details/index"
+      },
+      {
+        date: "物理",
+        
+        componentsPath: "/pages/quiz/details/index"
+      },
+      {
+        date: "化学",
+        componentsPath: "/pages/quiz/details/index"
+      },
+      {
+        date: "语文",
+        componentsPath: "/pages/quiz/details/index"
+      }
+      
+    ],
   },
   bindViewTap: function () {
     wx.navigateTo({

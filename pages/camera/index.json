@@ -1,3 +1,15 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "content-title1": "/components/content-title1/index",
+    "content-card1": "/components/content-card1/index",
+    "l-toast": "/dist/toast/index",
+    "l-textarea": "/dist/textarea/index",
+    "l-image-picker": "/dist/image-picker/index",
+    "l-button": "/dist/button/index",
+    "l-radio-group": "/dist/radio-group/index",
+    "l-radio": "/dist/radio/index",
+    "l-loading": "/dist/loading/index",
+    "l-input": "/dist/input/index",
+    "l-icon": "/dist/icon/index"
+  }
 }

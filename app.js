@@ -34,6 +34,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    answer:null,
+    question:null,
+    tag:null,
+    imageurl:null
   }
 })

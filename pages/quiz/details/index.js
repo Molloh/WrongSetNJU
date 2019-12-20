@@ -1,4 +1,5 @@
 // pages/quiz/old-quiz/index.js
+
 Page({
 
   /**

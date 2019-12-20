@@ -51,16 +51,3 @@
   display: flex;
   flex-direction: row;
 }
-
-.title {
-  font-size:32rpx;
-  font-weight:600;
-  color:rgba(69,82,107,1);
-  line-height:44rpx;
-}
-
-.input {
-  font-size:32rpx;
-  color:rgba(69,82,107,1);
-  line-height:44rpx;
-}
