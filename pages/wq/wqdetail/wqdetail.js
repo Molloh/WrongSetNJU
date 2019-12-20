@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:null,
     url:"/images/test/test-wq.png",
     category:"数学",
     question:"1+1=",
@@ -20,7 +21,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.setData({
+        id:options.id,
+        url: options.url,
+        category: options.category,
+        question: options.description,
+        answer: options.answer,
+        date: options.date
+      })
+      
   },
 
   /**
