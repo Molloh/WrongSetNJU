@@ -1,13 +1,107 @@
-// pages/camera/index.js
+// pages/wrongInput/wrongInput.js
+var app = getApp(); 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    arr1: [
+      
+    ],
+    items6: [{
+      id: 1,
+      name: '数学',
+    }, {
+      id: 2,
+      name: '语文'
+    }, {
+      id: 3,
+      name: '英语',
+    }, {
+      id: 4,
+      name: '其他',
+    }],
+    photo:"",
+    question: "",
+    answer:"",
+    cata:"",
+    currentKey:null,
+  },
+  onChange(e) {
+    const {
+      currentKey
+    } = {
+      ...e.detail
+    };
+    this.setData({
+      currentKey
+    });
+    console.log(this.data.currentKey);
+  },
+  clear() {
+    this.setData({
+      clear: true
+    })
+  },
+  onClearTap(e) {
+    console.log(e)
+    if (e.detail) {
+      wx.lin.showToast({
+        title: `清除图片成功`,
+        icon: 'success',
+        duration: 2000,
+        iconStyle: 'color:#7ec699; size: 60'
+      })
+    }
+  },
+  onChangeTap(e) {
+    console.log(e)
+    const count = e.detail.current.length
+    wx.lin.showToast({
+      title: `添加${count}张图片~`,
+      icon: 'picture',
+      duration: 2000,
+      iconStyle: 'color:#7ec699; size: 60'
+    })
+  },
+  onRemoveTap(e) {
+    console.log(e)
+    const index = e.detail.index
+    wx.lin.showMessage({
+      type: 'error',
+      content: `删除下标为${index}图片~`,
+      duration: 1500,
+      icon: 'warning'
+    })
+  },
+  onPreviewTap(e) {
+    console.log(e.detail)
   },
 
+  onTextInput(e) {
+    let { value } = { ...e.detail };
+    this.setData({
+      question: value
+    })
+    console.log(this.data.question);
+  },
+  onTextInput1(e){
+    let {value} = {...e.detail};
+    this.setData({
+      answer:value
+    })
+
+    console.log(this.data.answer);
+  },
+  onTextInput2(e) {
+    let { value } = { ...e.detail };
+    this.setData({
+      cata:value 
+    })
+    console.log("hhhhh");
+    console.log(this.data.cata); 
+  },
   /**
    * 生命周期函数--监听页面加载
    */

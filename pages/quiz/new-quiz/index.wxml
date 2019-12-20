@@ -7,7 +7,6 @@
     picture="{{wq.picture}}"
     desc="{{wq.desc}}"
     date="{{wq.date}}"
-    bind:answerEvent="onChangeAnswer"
   />
   <l-button 
     l-class="button" 

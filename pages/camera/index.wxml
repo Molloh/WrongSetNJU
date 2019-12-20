@@ -1,2 +1,67 @@
-<!--pages/camera/index.wxml-->
-<text>pages/camera/index.wxml</text>
+<view class='container'>
+
+  <content-title1 name="错题录入">
+     <content-card1
+      class="content"
+      name="拍照录入"
+    >
+    <l-image-picker urls="{{arr1}}" count="1" />
+    </content-card1>
+
+    <content-card1
+      class="content"
+      name="题目描述"
+    >
+      <view class='buttun-wrapper'>
+        <l-textarea indicator="{{false}}"  placeholder="题目内容..." bind:lininput="onTextInput"/>
+      </view>
+    </content-card1>
+
+
+    <content-card1
+      class="content"
+      name="题目答案"
+    >
+      <view class='buttun-wrapper'>
+        <l-textarea indicator="{{false}}" auto-height="{{false}}"  placeholder="答案..."
+        bind:lininput="onTextInput1"/>
+      </view>
+    </content-card1>
+
+
+    <content-card1
+      class="content"
+      name="题目类别"
+    >
+      <view class='buttun-wrapper1'>
+        
+          <l-radio-group l-class="l-radio-group" length="4" bind:linchange ="onChange"
+          >
+            <l-radio
+              l-class="l-radio"
+              wx:for="{{items6}}"
+              wx:key="id" 
+              key="{{item.id}}"
+              custom>
+                <image class="radio-img" src="{{item.id==currentKey?'./images/radiobutton.png':'./images/radio.png'}}" slot="icon"/>
+                <text style="color:{{item.id==currentKey?'#d4237a':'#707070'}}">{{item.name}}</text>
+            </l-radio>
+          </l-radio-group>
+      </view>
+       <view class='buttun-wrapper'>
+        <l-textarea indicator="{{false}}" auto-height="{{false}}"  placeholder="其他类别..."
+        bind:lininput="onTextInput2"/>
+
+      </view>
+     
+    </content-card1>
+    <content-card1 name="通栏按钮" cardPadding="{{false}}">
+    <l-button size="long">提交</l-button>
+  </content-card1>
+  </content-title1>
+    
+</view>
+
+
+  <l-toast />
+  <l-message />
