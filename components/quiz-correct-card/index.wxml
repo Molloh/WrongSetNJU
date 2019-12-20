@@ -6,7 +6,7 @@
       <text>{{date}}</text>
     </view>
     <view class="status">
-      <l-radio-group placement="row" l-class="l-radio-group" length="3">
+      <l-radio-group placement="row" l-class="l-radio-group" length="2" bind:linchange="onCorrectAnswer">
         <l-radio
           l-class="l-radio"
           wx:for="{{radioItem}}"

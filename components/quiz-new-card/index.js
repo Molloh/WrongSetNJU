@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    index: Number,
     picture: String,
     desc: String,
     date: String
@@ -21,10 +22,12 @@ Component({
    */
   methods: {
     onChangeAnswer(e) {
-      console.log(e);
+      let { value } = { ...e.detail };
       this.triggerEvent(
-        'onChangeAnswer',
-        { tmp: 1 }
+        'inputEvent', { 
+          myAnswer: value,
+          index: this.properties.index
+        }
       );
     }
   }

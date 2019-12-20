@@ -10,6 +10,8 @@
     desc="{{wq.desc}}"
     answer="{{wq.answer}}"
     myAnswer="{{wq.myAnswer}}"
+    index="{{wq.id}}"
+    bind:correctEvent = "onCorrectWQ"
   />
   <l-button 
     l-class="button" 

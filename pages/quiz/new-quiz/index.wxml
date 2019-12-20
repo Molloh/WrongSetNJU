@@ -4,9 +4,11 @@
     wx:for="{{wqs}}"
     wx:for-item="wq"
     wx:key="id"
+    index="{{wq.id}}"
     picture="{{wq.picture}}"
     desc="{{wq.desc}}"
     date="{{wq.date}}"
+    bind:inputEvent="onGetAnswer"
   />
   <l-button 
     l-class="button" 
