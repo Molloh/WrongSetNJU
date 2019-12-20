@@ -6,15 +6,19 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
+          console.log(res.code);
           //发起网络请求
-          let tmp = wx.request({
-            url: 'https://netwx.c-leon.top/user',
-            data: res.code
-            
+          wx.request({
+            url: 'https://netwx.c-leon.top/user/',
+            data: {
+              code: res.code
+            },
+            success: res => {
+              console.log(res);
+            }
           })
-          console.log(tmp);
         } else {
-          console.log('登录失败！' + res.errMsg)
+          console.log('登录失败！' + res.errMsg);
         }
       }
     })
@@ -36,7 +40,6 @@ App({
             }
           })
         }
-        
       }
     })
   },

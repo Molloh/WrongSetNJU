@@ -17,7 +17,10 @@
         <text class="title">题目描述：</text>
         <text >{{desc}}</text>
       </view>
-      <l-textarea  placeholder="写下你的答案..." bind:linblur="onChangeAnswer"/>
+      <view class="input-content">
+        <text class="title">题目描述：</text>
+        <l-textarea l-class="textarea" maxlength="-1" indicator="{{false}}" placeholder="写下你的答案..." bind:linblur="onChangeAnswer"/>
+      </view>
     </view>
   </l-card>
 </view>

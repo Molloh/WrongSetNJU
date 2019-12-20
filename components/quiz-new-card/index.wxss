@@ -39,11 +39,18 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .sub-content {
   display: flex;
   flex-direction: row;
+}
+
+.input-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  width: 100%;
 }
