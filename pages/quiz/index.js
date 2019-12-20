@@ -89,7 +89,7 @@ Page({
       success: (res) => {
         let hisArr = [];
         console.log(res);
-        for(let x in res.data.questions) {
+        for(let x in res.data.quizzes) {
           let dis = x.scored ? "正确率：" + x.correct_num + "/" + x.total_num : "尚未批改";
           let tmp = {
             date: x.category,
