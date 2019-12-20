@@ -52,5 +52,18 @@
 }
 
 .textarea {
+  margin-top: 5rpx;
   width: 100%;
+}
+
+.desc {
+  font-size:32rpx;
+  color:rgba(69,82,107,1);
+  line-height:44rpx;
+}
+.title {
+  font-size:32rpx;
+  font-weight:600;
+  color:rgba(69,82,107,1);
+  line-height:44rpx;
 }
