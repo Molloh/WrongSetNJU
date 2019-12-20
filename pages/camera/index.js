@@ -95,21 +95,18 @@ Page({
         cata:this.data.tempcata
       })
     }
-    console.log(this.data.photourl);
-    console.log(this.data.question);
-    console.log(this.data.answer);
-    console.log(this.data.cata);
     wx.uploadFile({
-      url: '',
+      url: 'https://netwx.c-leon.top/api/wqs_file',
       filePath: this.data.photourl,
       name: 'file',
-      formData: {
-        
-        'question': this.data.question,
-        'answer': this.data.answer,
-        'cata': this.data.cata,
-        
+      formData: {  
+        description: this.data.question,
+        answer: this.data.answer,
+        category: this.data.cata,
       },
+      success:function(res){
+        console.log(res);
+      }
     })
   },
   onRemoveTap(e) {

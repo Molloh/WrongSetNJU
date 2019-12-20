@@ -5,7 +5,8 @@
     "pages/camera/index",
     "pages/quiz/new-quiz/index",
     "pages/quiz/details/index",
-    "pages/quiz/correct/index"
+    "pages/quiz/correct/index",
+    "pages/wq/wqdetail/wqdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

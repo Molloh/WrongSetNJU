@@ -9,58 +9,88 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     id: 0,
-    
+    // historyQuizzes: [
+    //   {
+    //     date: "数学",
+    //     desc: "2019/12/17  正确率：9/10",
+    //     icon: donePath,
+    //     componentsPath: "/pages/quiz/details/index?id=1"
+    //   },
+    //   {
+    //     date: "英语",
+    //     desc: "2019/12/17  尚未批改",
+    //     icon: todoPath,
+    //     componentsPath: "/pages/quiz/details/index?id=1"
+    //   },
+    //   {
+    //     date: "物理",
+    //     desc: "2019/12/17 正确率：9/10",
+    //     icon: donePath,
+    //     componentsPath: "/pages/quiz/details/index?id=1"
+    //   },
+    //   {
+    //     date: "化学",
+    //     desc: "2019/12/17 正确率：9/10",
+    //     icon: donePath,
+    //     componentsPath: "/pages/quiz/details/index?id=1"
+    //   },
+    //   {
+    //     date: "语文",
+    //     desc: "2019/12/17 正确率：9/10",
+    //     icon: donePath,
+    //     componentsPath: "/pages/quiz/details/index?id=1"
+    //   },
+    //   {
+    //     date: "数学",
+    //     desc: "2019/12/17 正确率：9/10",
+    //     icon: donePath,
+    //     componentsPath: "/pages/quiz/details/index?id=1"
+    //   }
+    // ],
    
-    wqs: [
+    historyQuizzes: [
       {
         id: 0,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
+        icon:"/images/navigator/wq-select.png",
+        date:"2019/12/20",
+        question:"1+1",
         category: "数学",
-        answer: "2",
+        componentsPath: "/pages/wq/wqdetail/wqdetail",
       },
       {
         id: 1,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
+        icon: "/images/navigator/wq-select.png",
+        date: "2019/12/20",
+        question: "1+1",
         category: "数学",
-        answer: "2",
        
       },
       {
         id: 2,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
+        icon: "/images/navigator/wq-select.png",
+        date: "2019/12/20",
+        question: "1+1",
         category: "数学",
-        
-        answer: "2",
       
       },
       {
         id: 3,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
+        icon: "/images/navigator/wq-select.png",
+        date: "2019/12/20",
+        question: "1+1",
         category: "数学",
-        
-        answer: "2",
         
       },
       {
         id: 4,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
+        icon: "/images/navigator/wq-select.png",
+        date: "2019/12/20",
+        question: "1+1",
         category: "数学",
-        
-        answer: "2",
-        
       }
     ]
   },
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+  
   onLoad: function (options) {
     if (app.globalData.userInfo) {
       this.setData({
