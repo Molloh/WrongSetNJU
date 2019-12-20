@@ -8,53 +8,19 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    id: 0,
-    // historyQuizzes: [
-    //   {
-    //     date: "数学",
-    //     desc: "2019/12/17  正确率：9/10",
-    //     icon: donePath,
-    //     componentsPath: "/pages/quiz/details/index?id=1"
-    //   },
-    //   {
-    //     date: "英语",
-    //     desc: "2019/12/17  尚未批改",
-    //     icon: todoPath,
-    //     componentsPath: "/pages/quiz/details/index?id=1"
-    //   },
-    //   {
-    //     date: "物理",
-    //     desc: "2019/12/17 正确率：9/10",
-    //     icon: donePath,
-    //     componentsPath: "/pages/quiz/details/index?id=1"
-    //   },
-    //   {
-    //     date: "化学",
-    //     desc: "2019/12/17 正确率：9/10",
-    //     icon: donePath,
-    //     componentsPath: "/pages/quiz/details/index?id=1"
-    //   },
-    //   {
-    //     date: "语文",
-    //     desc: "2019/12/17 正确率：9/10",
-    //     icon: donePath,
-    //     componentsPath: "/pages/quiz/details/index?id=1"
-    //   },
-    //   {
-    //     date: "数学",
-    //     desc: "2019/12/17 正确率：9/10",
-    //     icon: donePath,
-    //     componentsPath: "/pages/quiz/details/index?id=1"
-    //   }
-    // ],
-   
+    // id: 0,
+    icon: "/images/navigator/wq-select.png",
+    componentsPath: "/pages/wq/wqdetail/wqdetail",
     historyQuizzes: [
       {
         id: 0,
+
         icon:"/images/navigator/wq-select.png",
         date:"2019/12/20",
-        question:"1+1",
+        description:"1+1",
         category: "数学",
+        answer:"2",
+        url:"",
         componentsPath: "/pages/wq/wqdetail/wqdetail",
       },
       {
@@ -118,8 +84,34 @@ Page({
         }
       })
     }
+    wx.request({
+      url: 'https://netwx.c-leon.top/api/wqs',
+      data:"",
+      method:"GET",
+      success: (res) => {
+        let hisArr = [];
+        console.log(res);
+        for (let x in res.data.questions) {
+          
+          let tmp = {
+            id:x.id,
+            description:x.description,
+            date:x.date,
+            url:x.url,
+            answer:x.answer,
+            category:x.category,
+            componentsPath: "/pages/wq/wqdetail/wqdetail?descrition=" + x.description+"&date="+x.date+"&url="+x.url+"&answer="+x.answer+"&category="+x.category,
+          }
+          hisArr.push(tmp);
+        }
+        this.setData({
+          historyQuizzes:hisArr
+        })
+        console.log(hisArr);
+      },
+    });
   },
-
+  
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

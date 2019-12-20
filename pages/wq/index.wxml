@@ -13,11 +13,11 @@
         wx:for="{{historyQuizzes}}"
         wx:for-item="historyQuizzes"
         wx:key="index"
-        icon="{{historyQuizzes.icon}}"
+        icon="{{icon}}"
         title="{{historyQuizzes.category}}"
         componentsPath="{{historyQuizzes.componentsPath}}"
         desc="记录时间： {{historyQuizzes.date}}"
-        question="题目描述： {{historyQuizzes.question}}"
+        question="题目描述： {{historyQuizzes.description}}"
       />
     </view>
   </view>
