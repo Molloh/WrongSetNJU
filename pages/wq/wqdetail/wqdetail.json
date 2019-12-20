@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#3963BC",
+  "usingComponents": {
+    "content-title": "/components/content-title/index",
+    "l-card": "/dist/card/index",
+    "l-icon": "/dist/icon/index",
+    "l-tag": "/dist/tag/index",
+    "content-card1": "/components/content-card1/index",
+    "l-button": "/dist/button/index"
+  }
+}

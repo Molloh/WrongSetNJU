@@ -3,7 +3,7 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "content-card": "/components/content-card/index",
-    "detail-navi-card": "/components/detail-navi-card/index",
+    "detail-navi-card1": "/components/detail-navi-card1/index",
     "l-button": "/dist/button/index",
     "l-dialog": "/dist/dialog/index",
     "l-radio": "/dist/radio/index",

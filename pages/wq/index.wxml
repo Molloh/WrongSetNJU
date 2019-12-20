@@ -1,28 +1,27 @@
 <!--pages/wq/index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="header">
+    <image class="header-bg" src="/images/static/index_bg.png"></image>
+    <text class="header-desc">
+      <text class="header-name">我的错题</text>
+    </text>
   </view>
-  <!-- <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
   
-  <content-title name="{{category}}" describe="{{desc}}">
-  <quiz-card1
-    wx:for="{{wqs}}"
-    wx:for-item="wq"
-    wx:key="id"
-    category="{{wq.category}}"
-    picture="{{wq.picture}}"
-    desc="{{wq.desc}}"
-    answer="{{wq.answer}}"
-  />
-  </content-title>
-
+  <view class="section">
+    <view class="section-content">
+      <detail-navi-card1
+        wx:for="{{historyQuizzes}}"
+        wx:for-item="historyQuizzes"
+        wx:key="index"
+        icon="{{historyQuizzes.icon}}"
+        title="{{historyQuizzes.category}}"
+        componentsPath="{{historyQuizzes.componentsPath}}"
+        desc="记录时间： {{historyQuizzes.date}}"
+        question="题目描述： {{historyQuizzes.question}}"
+      />
+    </view>
+  </view>
+  
 </view>
 
   
