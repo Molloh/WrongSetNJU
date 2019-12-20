@@ -9,4 +9,27 @@
     date="{{wq.date}}"
     bind:answerEvent="onChangeAnswer"
   />
+  <l-button 
+    l-class="button" 
+    icon="checked" 
+    icon-size="28" 
+    width="690"
+    height="100"
+    bind:lintap="onShowSubmitTap"
+  >
+    提交
+  </l-button>
+  <l-dialog
+    show="{{currentConf.show}}"
+    type="{{currentConf.type}}"
+    show-close="{{currentConf.showClose}}"
+    title="{{currentConf.title}}"
+    show-title="{{currentConf.showTitle}}"
+    content="{{currentConf.content}}" 
+    cancel-text="{{currentConf.cancelText}}" 
+    cancel-color="{{currentConf.cancelColor}}" 
+    confirm-text="{{currentConf.confirmText}}"  
+    confirm-color="{{currentConf.confirmColor}}"
+    bind:linconfirm="onConfirmTap"
+  />
 </content-title>

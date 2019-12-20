@@ -8,6 +8,7 @@ Page({
     num: 0,
     category: "",
     date: "",
+    currentConf: {},  
     wqs: [
       {
         id: 0,
@@ -59,7 +60,18 @@ Page({
         myAnswer: "2",
         isCorrect: true
       }
-    ]
+    ],
+    submitConfig: {
+      show: true,
+      type: "confirm",
+      showTitle: false,
+      title: "",
+      content: "是否提交？",
+      confirmText: '确定',
+      confirmColor: '#3683d6',
+      cancelText: '取消',
+      cancelColor: '#999'
+    }
   },
 
   /**
@@ -79,6 +91,22 @@ Page({
 
   onChangeAnswer(e) {
     // console.log(e);
+  },
+
+  onShowSubmitTap(e) {
+    const config = this.data.submitConfig;
+    this.setData({
+      currentConf: config
+    });
+  },
+
+  onCancelSubmit(e) {
+    setTimeout(() => {
+      wx.showToast({
+        title: '点击了取消～',
+        icon: 'none'
+      })
+    }, 100)
   },
 
   /**
