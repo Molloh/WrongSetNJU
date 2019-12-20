@@ -18,7 +18,10 @@ App({
             },
             method: 'POST',
             success: res => {
-              console.log(res);
+              this.globalData.openid = res.data.openid;
+              if (this.loginCallback) {
+                this.loginCallback(res.data.openid)
+              }
             }
           })
         } else {
@@ -49,6 +52,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    
+    openid: '',
+    prefix_url: "https://netwx.c-leon.top/api/"
   }
 })

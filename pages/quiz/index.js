@@ -1,7 +1,13 @@
 // pages/quiz/index.js
 import {quizConfig, countConfig} from "./quiz-dialog.js";
+import wxRequest from "../../api/common.js";
+
+const util = require("../../utils/util.js");
 const donePath = "/images/quiz/done.png";
 const todoPath = "/images/quiz/todo.png";
+const app = getApp();
+
+
 Page({
   /**
    * 页面的初始数据
@@ -77,7 +83,26 @@ Page({
   },
 
   onLoad: function (options) {
-
+    // 获取所有历史测验数据
+    wxRequest({
+      url: 'quiz',
+      success: (res) => {
+        let hisArr = [];
+        console.log(res);
+        for(let x in res.data.quizzes) {
+          let dis = x.scored ? "正确率：" + x.correct_num + "/" + x.total_num : "尚未批改";
+          let tmp = {
+            date: x.category,
+            desc: util.formatTime(x.date) + dis,
+            componentsPath: "/pages/quiz/details/index?id=" + x._id,
+            icon: ""
+          }
+          hisArr.push(tmp);
+        }
+        console.log(hisArr);
+      },
+    });
+    
   },
 
   // 确定按钮
