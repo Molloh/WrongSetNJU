@@ -1,4 +1,5 @@
 // mask
+var app=getApp();
 Component({
   /**
    * 组件的属性列表
@@ -151,8 +152,10 @@ Component({
           let tempFilePath = [];
           if (newOrOld == 'old') {
             tempFilePath = res.tempFilePaths;
+            app.globalData.imageurl = tempFilePath[0];
           } else {
             for (let i = 0; i < res.tempFilePaths.length; i++) {
+              app.globalData.imageurl=res.tempFilePaths[i];
               tempFilePath.push({
                 url: res.tempFilePaths[i],
                 // key: null
@@ -167,6 +170,7 @@ Component({
           }
           const newtempFilePaths = that.data.urls.concat(tempFilePath);
           // 判断是否还能继续添加图片 
+          
           if (newtempFilePaths.length === parseInt(that.data.count)) {
             that.setData({
               showBtn: false

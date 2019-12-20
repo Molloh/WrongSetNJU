@@ -7,6 +7,5 @@
     picture="{{wq.picture}}"
     desc="{{wq.desc}}"
     date="{{wq.date}}"
-    bind:answerEvent="onChangeAnswer"
   />
 </content-title>
