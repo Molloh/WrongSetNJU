@@ -19,67 +19,13 @@ Page({
         desc: "2019/12/17  正确率：9/10",
         icon: donePath,
         componentsPath: "/pages/quiz/details/index?id=1"
-      },
-      {
-        date: "英语",
-        desc: "2019/12/17  尚未批改",
-        icon: todoPath,
-        componentsPath: "/pages/quiz/details/index?id=1"
-      },
-      {
-        date: "物理",
-        desc: "2019/12/17 正确率：9/10",
-        icon: donePath,
-        componentsPath: "/pages/quiz/details/index?id=1"
-      },
-      {
-        date: "化学",
-        desc: "2019/12/17 正确率：9/10",
-        icon: donePath,
-        componentsPath: "/pages/quiz/details/index?id=1"
-      },
-      {
-        date: "语文",
-        desc: "2019/12/17 正确率：9/10",
-        icon: donePath,
-        componentsPath: "/pages/quiz/details/index?id=1"
-      },
-      {
-        date: "数学",
-        desc: "2019/12/17 正确率：9/10",
-        icon: donePath,
-        componentsPath: "/pages/quiz/details/index?id=1"
       }
     ],
-    categories: [
-      {
-        id: 1,
-        type: "数学"
-      },
-      {
-        id: 2,
-        type: "语文"
-      },
-      {
-        id: 3,
-        type: "英语"
-      },
-      {
-        id: 4,
-        type: "化学"
-      },
-      {
-        id: 5,
-        type: "物理"
-      }
-    ],
+    categories: [],
     quizConfig,
     countConfig,
     currentConf: {},    
-    quizForm: {
-      num: 10,
-      category: "数学"
-    }
+    quizForm: {}
   },
 
   onLoad: function (options) {
@@ -89,34 +35,61 @@ Page({
       success: (res) => {
         let hisArr = [];
         console.log(res);
-        for(let x in res.data.quizzes) {
-          let dis = x.scored ? "正确率：" + x.correct_num + "/" + x.total_num : "尚未批改";
+        for(let x of res.data.quizzes) {
+          let dis = x.scored ? "正确率：" + x.correct_num + "/" + x.total_num : " 尚未批改";
+          let ipath = x.scored ? donePath : todoPath;
+          let cpath;
+          if(x.scored)
+            cpath = "/pages/quiz/details/index?id=" + x._id;
+          else
+            cpath = "/pages/quiz/correct/index?id=" + x._id
           let tmp = {
             date: x.category,
             desc: util.formatTime(x.date) + dis,
-            componentsPath: "/pages/quiz/details/index?id=" + x._id,
-            icon: ""
+            componentsPath: cpath,
+            icon: ipath
           }
           hisArr.push(tmp);
         }
-        // this.setData({
-        //   historyQuizzes: hisArr
-        // })
+        console.log(hisArr);
+        this.setData({
+          historyQuizzes: hisArr
+        })
       },
     });
     
   },
 
   // 确定按钮
-  onConfirmTap(e) {
+  onConfirmTap(e) {    
     wx.navigateTo({
       url: '../quiz/new-quiz/index?num=' + this.data.quizForm.num + '&category=' + this.data.quizForm.category
     })
-    console.log('../quiz/new-quiz/index?num=' + this.data.quizForm.num + '&category=' + this.data.quizForm.category);
   },
 
   // 显示新建测试dialog
   onShowNewQuizTap(e) {
+    wxRequest({
+      url: 'wqs/categories',
+      success: res => {
+        let arr = res.data;
+        let cate = [];
+        for(let i = 0; i < arr.length; i++) {
+          let tmp = {
+            id: i + 1,
+            type: arr[i]
+          }
+          cate.push(tmp);
+        }
+        this.setData({
+          categories: cate,
+          quizForm: {
+            num: 10,
+            category: cate[0].type
+          }
+        })
+      }
+    });
     const config = this.data.quizConfig;
     this.setData({
       currentConf: config

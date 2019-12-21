@@ -1,6 +1,7 @@
 // pages/quiz/correct/index.js
+import wxRequest from "../../../api/common.js";
+const util = require("../../../utils/util.js");
 Page({
-
   data: {
     category: "数学",
     desc: "2019/12/18",
@@ -22,13 +23,47 @@ Page({
 
   onLoad: function (options) {
     let param = wx.getStorageSync('tmp_quiz');
-    console.log(param);
-    this.setData({
-      category: param.category,
-      desc: param.data,
-      wqs: param.wqs
-    });
-    wx.removeStorageSync('tmp_quiz');
+    if(param) {
+      this.setData({
+        category: param.category,
+        desc: param.data,
+        wqs: param.wqs
+      });
+      wx.removeStorageSync('tmp_quiz');
+    }else {
+      let id = options.id;
+      wxRequest({
+        url: 'quiz/' + id,
+        success: res => {
+          console.log(res);
+          let cate = res.data.category;
+          let desc = util.formatTime(res.data.date);
+          let ques = [];
+          let fromques = res.data.question_list;
+          for (let i = 0; i < fromques.length; i++) {
+            console.log(fromques[i].date);
+            let tmp = {
+              id: i,
+              picture: fromques[i].url,
+              desc: fromques[i].description,
+              category: fromques[i].category,
+              date: (i + 1) + ' - 错题记录时间：' + util.formatTime(fromques[i].date),
+              answer: fromques[i].answer,
+              myAnswer: '',
+              isCorrect: null,
+              _id: fromques[i]._id
+            }
+            ques.push(tmp);
+          }
+          console.log(ques);
+          this.setData({
+            category: cate,
+            desc: desc,
+            wqs: ques
+          })
+        }
+      })
+    }
   },
 
   onShowSubmitTap(e) {
@@ -39,7 +74,35 @@ Page({
   },
 
   onConfirmSubmit(e) {
-    // 提交批改过的试卷
+    let q_arr = [];
+    let a_arr = [];
+    let c_arr = [];
+    let wqs = this.data.wqs;
+    for (let item of wqs) {
+      q_arr.push(item._id);
+      a_arr.push(item.myAnswer);
+      if(item.isCorrect)
+        c_arr.push(1);
+      else
+        c_arr.push(0);
+    }
+    const ts = new Date().valueOf();
+    wxRequest({
+      url: 'quiz',
+      method: 'POST',
+      data: {
+        is_correct: 1,
+        question_arr: q_arr,
+        answer_arr: a_arr,
+        correct_arr: c_arr,
+        date: ts,
+        time_used: 300,
+        category: this.data.category
+      },
+      success: res => {
+        console.log(res.data);
+      }
+    })
   },
 
   onCorrectWQ(e) {

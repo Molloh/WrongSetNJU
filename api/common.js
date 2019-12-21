@@ -5,6 +5,7 @@ const wxRequest = (params, url) => {
   if(auth == '') {
     app.onLogin();
   }
+  console.log(auth);
   wx.request({
     url: prefix + params.url,
     data: params.data || '',

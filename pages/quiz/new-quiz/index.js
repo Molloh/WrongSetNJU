@@ -1,4 +1,6 @@
 // pages/quiz/new-quiz/index.js
+import wxRequest from "../../../api/common.js";
+const util = require("../../../utils/util.js");
 Page({
 
   /**
@@ -8,59 +10,8 @@ Page({
     num: 0,
     category: "",
     date: "",
-    currentConf: {},  
-    wqs: [
-      {
-        id: 0,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
-        date: "2019/12/1",
-        category: "数学",
-        answer: "2",
-        myAnswer: "2",
-        isCorrect: true
-      },
-      {
-        id: 1,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
-        category: "数学",
-        date: "2019/12/1",
-        answer: "2",
-        myAnswer: "2",
-        isCorrect: true
-      },
-      {
-        id: 2,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
-        category: "数学",
-        date: "2019/12/1",
-        answer: "2",
-        myAnswer: "2",
-        isCorrect: true
-      },
-      {
-        id: 3,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
-        category: "数学",
-        date: "2019/12/1",
-        answer: "2",
-        myAnswer: "2",
-        isCorrect: true
-      },
-      {
-        id: 4,
-        picture: "/images/test/test-wq.png",
-        desc: "1+1=?",
-        category: "数学",
-        date: "2019/12/1",
-        answer: "2",
-        myAnswer: "2",
-        isCorrect: true
-      }
-    ],
+    currentConf: {},
+    wqs: [],
     submitConfig: {
       show: true,
       type: "confirm",
@@ -78,6 +29,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wxRequest({
+      url: 'quiz/generate/' + options.num + '/' + options.category,
+      success: res => {
+        let ques = [];
+        let fromques = res.data.questions;
+        for (let i = 0; i < fromques.length; i ++) {
+          let tmp = {
+            id: i,
+            picture: fromques[i].url,
+            desc: fromques[i].description,
+            category: fromques[i].category,
+            date: (i+1) + ' - 错题记录时间：' + util.formatTime(fromques[i].date),
+            answer: fromques[i].answer,
+            myAnswer: '',
+            isCorrect: null,
+            _id: fromques[i]._id
+          }
+          ques.push(tmp);
+        }
+        console.log(ques);
+        this.setData({
+          wqs: ques
+        })
+      }
+    });
+
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -87,6 +64,8 @@ Page({
       num: options.num,
       category: options.category
     });
+
+
   },
 
   onShowSubmitTap(e) {
@@ -102,6 +81,7 @@ Page({
       date: this.data.date,
       wqs: this.data.wqs
     };
+    console.log(this.data.wqs);
     wx.setStorageSync('tmp_quiz', currentQuiz);
     wx.navigateTo({
       url: '../correct/index',
