@@ -1,6 +1,7 @@
 // pages/quiz/correct/index.js
 import wxRequest from "../../../api/common.js";
 const util = require("../../../utils/util.js");
+
 Page({
   data: {
     category: "数学",
@@ -35,13 +36,11 @@ Page({
       wxRequest({
         url: 'quiz/' + id,
         success: res => {
-          console.log(res);
           let cate = res.data.category;
           let desc = util.formatTime(res.data.date);
           let ques = [];
           let fromques = res.data.question_list;
           for (let i = 0; i < fromques.length; i++) {
-            console.log(fromques[i].date);
             let tmp = {
               id: i,
               picture: fromques[i].url,
@@ -55,7 +54,6 @@ Page({
             }
             ques.push(tmp);
           }
-          console.log(ques);
           this.setData({
             category: cate,
             desc: desc,
@@ -86,12 +84,13 @@ Page({
       else
         c_arr.push(0);
     }
-    const ts = new Date().valueOf();
+    console.log(q_arr);
+    const ts = (new Date()).valueOf();
     wxRequest({
       url: 'quiz',
       method: 'POST',
       data: {
-        is_correct: 1,
+        is_corrected: 1,
         question_arr: q_arr,
         answer_arr: a_arr,
         correct_arr: c_arr,
