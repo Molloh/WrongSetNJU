@@ -1,10 +1,6 @@
-// pages/wrongInput/wrongInput.js
-var app = getApp(); 
+const app = getApp(); 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     arr1: [
       
@@ -29,6 +25,7 @@ Page({
     tempcat:"",
     currentKey:null,
   },
+
   onChange(e) {
     const {
       currentKey
@@ -40,6 +37,7 @@ Page({
     });
     console.log(this.data.currentKey);
   },
+
   addPicture: function (e) {
     const{
       current
@@ -51,11 +49,13 @@ Page({
     })
     console.log(this.data.photourl);
   },
+
   clear() {
     this.setData({
       clear: true
     })
   },
+
   onClearTap(e) {
     console.log(e)
     if (e.detail) {
@@ -67,6 +67,7 @@ Page({
       })
     }
   },
+
   onChangeTap(e) {
     console.log(e)
     const count = e.detail.current.length
@@ -77,6 +78,7 @@ Page({
       iconStyle: 'color:#7ec699; size: 60'
     })
   }, 
+
   onLoadTap: function () {
     if (this.data.currentKey==1){
       this.setData({
@@ -95,20 +97,36 @@ Page({
         cata:this.data.tempcata
       })
     }
+
+    // 获取当前openid
+    let auth = wx.getStorageSync("openid")
+    if (auth == '') {
+      app.onLogin();
+    }
+    console.log(auth);
+    const ts = new Date().valueOf();
+    // 上传错题信息
     wx.uploadFile({
       url: 'https://netwx.c-leon.top/api/wqs_file',
       filePath: this.data.photourl,
       name: 'file',
+      header: {
+        'content-type': 'multipart/form-data',
+        'authorization': auth
+      },
       formData: {  
+        date: 1576570617,
         description: this.data.question,
         answer: this.data.answer,
         category: this.data.cata,
       },
       success:function(res){
-        console.log(res.data);
+        const log = res.data;
+        console.log(log);
       }
     })
   },
+
   onRemoveTap(e) {
     console.log(e)
     const index = e.detail.index
@@ -119,6 +137,7 @@ Page({
       icon: 'warning'
     })
   },
+
   onPreviewTap(e) {
     console.log(e.detail)
   },
@@ -128,79 +147,24 @@ Page({
     this.setData({
       question: value
     })
-    console.log(this.data.question);
   },
+
   onTextInput1(e){
     let {value} = {...e.detail};
     this.setData({
       answer:value
-      
     })
-
-    console.log(this.data.answer);
   },
+
   onTextInput2(e) {
     let { value } = { ...e.detail };
     this.setData({
       tempcata:value 
     })
-    
-    console.log(this.data.tempcata); 
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-  
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
