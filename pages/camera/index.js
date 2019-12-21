@@ -27,6 +27,7 @@ Page({
     answer:"",
     cata:"",
     tempcat:"",
+    dismissed:"false",
     currentKey:null,
   },
   onChange(e) {
@@ -100,6 +101,7 @@ Page({
       url: 'https://netwx.c-leon.top/api/wqs_file',
       filePath: this.data.photourl,
       name: 'file',
+      dismissed:this.data.dismissed,
       header: {
       'content-type': 'application/json',
       'authorization': auth
