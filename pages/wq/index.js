@@ -19,7 +19,7 @@ Page({
     wxRequest({
       url: 'wqs',
       data:{
-          dismissed:true
+          dismissed:false
       },
       method: "GET",
       success: (res) => {
