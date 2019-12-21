@@ -12,78 +12,68 @@ Page({
     icon: "/images/navigator/wq-select.png",
     componentsPath: "/pages/wq/wqdetail/wqdetail",
     historyQuizzes: [
-      {
-        id: 0,
-
-        icon:"/images/navigator/wq-select.png",
-        date:"2019/12/20",
-        description:"1+1",
-        category: "数学",
-        answer:"2",
-        url:"",
-        componentsPath: "/pages/wq/wqdetail/wqdetail",
-      },
-      {
-        id: 1,
-        icon: "/images/navigator/wq-select.png",
-        date: "2019/12/20",
-        question: "1+1",
-        category: "数学",
-       
-      },
-      {
-        id: 2,
-        icon: "/images/navigator/wq-select.png",
-        date: "2019/12/20",
-        question: "1+1",
-        category: "数学",
-      
-      },
-      {
-        id: 3,
-        icon: "/images/navigator/wq-select.png",
-        date: "2019/12/20",
-        question: "1+1",
-        category: "数学",
-        
-      },
-      {
-        id: 4,
-        icon: "/images/navigator/wq-select.png",
-        date: "2019/12/20",
-        question: "1+1",
-        category: "数学",
-      }
+     
     ]
   },
-  
-  onLoad: function (options) {
+  onShow: function (options) {
     wxRequest({
       url: 'wqs',
-      method:"GET",
+      data:{
+          dismissed:true
+      },
+      method: "GET",
       success: (res) => {
         let hisArr = [];
         console.log(res);
-        for (let x in res.data.questions) {
-          
+        for (let m in res.data.questions) {
+           console.log(res.data.questions[m]);
+          let x=res.data.questions[m];
           let tmp = {
-            id:x.id,
-            description:x.description,
-            date:x.date,
-            url:x.url,
-            answer:x.answer,
-            category:x.category,
-            componentsPath: "/pages/wq/wqdetail/wqdetail?descrition=" + x.description+"&date="+x.date+"&url="+x.url+"&answer="+x.answer+"&category="+x.category,
+            id: x._id,
+            description: x.description,
+            date: x.date,
+            url: x.url,
+            answer: x.answer,
+            category: x.category,
+            componentsPath: "/pages/wq/wqdetail/wqdetail?descrpition=" + x.description + "&date=" + x.date + "&url=" + x.url + "&answer=" + x.answer + "&category=" + x.category,
           }
           hisArr.push(tmp);
         }
         this.setData({
-          historyQuizzes:hisArr
+          historyQuizzes: hisArr
         })
         console.log(hisArr);
       },
     });
   },
+
+  // onLoad: function (options) {
+  //   wxRequest({
+  //     url: 'wqs',
+  //     method:"GET",
+  //     success: (res) => {
+  //       let hisArr = [];
+  //       console.log(res);
+  //       for (let x in res.data.questions) {
+          
+  //         let tmp = {
+  //           id:x._id,
+  //           description:x.description,
+  //           date:x.date,
+  //           url:x.url,
+  //           answer:x.answer,
+  //           category:x.category,
+  //           componentsPath: "/pages/wq/wqdetail/wqdetail?descrpition=" +x.description+"&date="+x.date+"&url="+x.url+"&answer="+x.answer+"&category="+x.category+"&id="+x._id,
+  //         }
+  //         hisArr.push(tmp);
+  //       }
+  //       this.setData({
+  //         historyQuizzes:hisArr
+  //       })
+  //       console.log(hisArr);
+  //     },
+  //   });
+  // },
   
   getUserInfo: function (e) {
     console.log(e)

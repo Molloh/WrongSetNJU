@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:null,
+    id:1,
     url:"/images/test/test-wq.png",
     category:"数学",
     question:"1+1=",

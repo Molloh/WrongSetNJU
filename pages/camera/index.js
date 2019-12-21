@@ -119,7 +119,7 @@ Page({
         description: this.data.question,
         answer: this.data.answer,
         category: this.data.cata,
-        dismissed: this.data.dismissed,
+        dismissed: false,
       },
       success:function(res){
         const log = res.data;
