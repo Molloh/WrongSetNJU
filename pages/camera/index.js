@@ -23,6 +23,7 @@ Page({
     answer:"",
     cata:"",
     tempcat:"",
+    dismissed:"false",
     currentKey:null,
   },
 
@@ -97,7 +98,6 @@ Page({
         cata:this.data.tempcata
       })
     }
-
     // 获取当前openid
     let auth = wx.getStorageSync("openid")
     if (auth == '') {
@@ -114,11 +114,12 @@ Page({
         'content-type': 'multipart/form-data',
         'authorization': auth
       },
-      formData: {  
+      formData: {
         date: 1576570617,
         description: this.data.question,
         answer: this.data.answer,
         category: this.data.cata,
+        dismissed: this.data.dismissed,
       },
       success:function(res){
         const log = res.data;
