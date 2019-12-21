@@ -99,6 +99,7 @@ Page({
         category: this.data.category
       },
       success: res => {
+        console.log("/pages/quiz/details/index?id=" + res.data._id);
         wx.navigateTo({
           url: "/pages/quiz/details/index?id=" + res.data._id,
         })

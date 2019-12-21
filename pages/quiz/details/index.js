@@ -9,9 +9,9 @@ Page({
    */
   data: {
     isMarked: true,
-    totalNum: 5,
-    correctNum: 5,
-    category: "数学",
+    totalNum: 0,
+    correctNum: 0,
+    category: "",
     desc: "2019/12/18",
     wqs: [
       {
@@ -54,59 +54,11 @@ Page({
           isMarked: res.data.scored,
           totalNum: res.data.total_num,
           correctNum: res.data.correct_num,
-          desc: '测验时间：' + date,
+          desc: '测验时间：' + date + '；共' + res.data.total_num + '题，对' + res.data.correct_num + '题',
           wqs: ques
         })
       }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

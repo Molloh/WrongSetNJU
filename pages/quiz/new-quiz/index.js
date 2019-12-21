@@ -51,21 +51,19 @@ Page({
         console.log(ques);
         this.setData({
           wqs: ques
-        })
+        });
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let len = fromques.length
+        this.setData({
+          date: year + "/" + month + "/" + day,
+          num: len,
+          category: options.category + "，共" + len + '题'
+        });
       }
     });
-
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    this.setData({
-      date: year + "/" + month + "/" + day,
-      num: options.num,
-      category: options.category
-    });
-
-
   },
 
   onShowSubmitTap(e) {
@@ -83,9 +81,9 @@ Page({
     };
     console.log(this.data.wqs);
     wx.setStorageSync('tmp_quiz', currentQuiz);
-    wx.navigateTo({
-      url: '../correct/index',
-    })
+    // wx.navigateTo({
+    //   url: '../correct/index',
+    // })
   },
 
   // 根据问题更改对应的答案
