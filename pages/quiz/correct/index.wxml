@@ -23,6 +23,8 @@
   >
     完成批改
   </l-button>
+</content-title>
+
   <l-dialog
     show="{{currentConf.show}}"
     type="{{currentConf.type}}"
@@ -36,4 +38,3 @@
     confirm-color="{{currentConf.confirmColor}}"
     bind:linconfirm="onConfirmSubmit"
   />
-</content-title>

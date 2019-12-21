@@ -10,6 +10,7 @@
   <l-card 
     class="card"
     type="cover"
+    image-mode="aspectFit"
     image="{{picture}}"
     title="">
     <view class="content">

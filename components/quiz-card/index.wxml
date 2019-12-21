@@ -13,6 +13,7 @@
     class="card"
     type="cover"
     image="{{picture}}"
+    image-mode="aspectFit"
     title="">
     <view class="content">
       <view class="sub-content">

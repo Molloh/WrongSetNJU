@@ -4,8 +4,8 @@ const util = require("../../../utils/util.js");
 
 Page({
   data: {
-    category: "数学",
-    desc: "2019/12/18",
+    category: '',
+    desc: '',
     wqs: [],
     isMarked: false,
     currentConf: {},
@@ -99,7 +99,9 @@ Page({
         category: this.data.category
       },
       success: res => {
-        console.log(res.data);
+        wx.navigateTo({
+          url: "/pages/quiz/details/index?id=" + res.data._id,
+        })
       }
     })
   },
