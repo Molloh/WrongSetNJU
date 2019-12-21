@@ -19,7 +19,7 @@ Page({
     wxRequest({
       url: 'wqs',
       data:{
-          dismissed:false
+          dismissed:true
       },
       method: "GET",
       success: (res) => {
@@ -35,7 +35,7 @@ Page({
             url: x.url,
             answer: x.answer,
             category: x.category,
-            componentsPath: "/pages/wq/wqdetail/wqdetail?descrpition=" + x.description + "&date=" + x.date + "&url=" + x.url + "&answer=" + x.answer + "&category=" + x.category,
+            componentsPath: "/pages/wq/wqdetail/wqdetail?description=" + x.description + "&date=" + x.date + "&url=" + x.url + "&answer=" + x.answer + "&category=" + x.category + "&id=" + x._id,
           }
           hisArr.push(tmp);
         }
