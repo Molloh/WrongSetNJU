@@ -22,8 +22,8 @@
 }
 
 .detail-icon {
-  width: 70rpx;
-  height: 80rpx;
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .detail-content {

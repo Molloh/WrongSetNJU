@@ -101,7 +101,7 @@ Page({
       url: 'https://netwx.c-leon.top/api/wqs_file',
       filePath: this.data.photourl,
       name: 'file',
-      dismissed:this.data.dismissed,
+      
       header: {
       'content-type': 'application/json',
       'authorization': auth
@@ -110,6 +110,7 @@ Page({
         description: this.data.question,
         answer: this.data.answer,
         category: this.data.cata,
+        dismissed: this.data.dismissed,
       },
       success:function(res){
         console.log(res.data);

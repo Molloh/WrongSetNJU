@@ -32,7 +32,7 @@
   
 </content-title>
   
- <l-button size="long" bind:lintap="reInput" class="bth">修改错题</l-button>
+ <!-- <l-button size="long" bind:lintap="reInput" class="bth">修改错题</l-button> -->
   
   
 </view>
