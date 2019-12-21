@@ -95,10 +95,15 @@ Page({
         cata:this.data.tempcata
       })
     }
+    let auth = wx.getStorageSync("openid")
     wx.uploadFile({
       url: 'https://netwx.c-leon.top/api/wqs_file',
       filePath: this.data.photourl,
       name: 'file',
+      header: {
+      'content-type': 'application/json',
+      'authorization': auth
+    },
       formData: {  
         description: this.data.question,
         answer: this.data.answer,
