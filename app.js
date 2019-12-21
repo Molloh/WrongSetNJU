@@ -36,6 +36,7 @@ App({
   },
 
   globalData: {
+    imageurl:null,
     userInfo: null,
     openid: '',
     prefix_url: "https://netwx.c-leon.top/api/"

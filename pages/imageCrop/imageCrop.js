@@ -1,5 +1,4 @@
-var t = void 0, a = void 0, e = (wx.getSystemInfoSync().pixelRatio, void 0), o = void 0, c = void 0, i = void 0, n = void 0, s = void 0, h = void 0, u = void 0, d = void 0, r = 750 / wx.getSystemInfoSync().windowWidth, g = 200, p = void 0;
-
+var t = void 0, a = void 0, e = (wx.getSystemInfoSync().pixelRatio, void 0), o = void 0, c = void 0, i = void 0, n = void 0, s = void 0, h = void 0, u = void 0, d = void 0, r = 750 / wx.getSystemInfoSync().windowWidth, g = 200, p = void 0;const app=getApp();
 Page({
   data: {
     imageSrc: "",
@@ -159,7 +158,7 @@ Page({
     
     
     wx.navigateTo({
-       url: "dist/image-picker/index?path=" + t
+       url: "dist/image-picker/index?path="
     });
   },
   doChangeImage: function (t) {

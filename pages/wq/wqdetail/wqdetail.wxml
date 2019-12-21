@@ -8,7 +8,7 @@
   </view>
   <content-title >
 
-  <l-card type="cover" l-class="card" image="{{url}}" >
+  <l-card type="cover" l-class="card" image="{{url}}">
   
     <view class="content" >
     <text class="text">题目类别：{{category}}</text>
@@ -23,7 +23,9 @@
       
     </view>
     <view class="content">
+
      <text class="text">记录时间：{{date}}</text>
+
       
     </view>
   </l-card>
