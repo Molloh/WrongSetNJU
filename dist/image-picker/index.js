@@ -168,9 +168,9 @@ Component({
               }
             }
           }
-          wx.navigateTo({
-            url: '/pages/imageCrop/imageCrop?path='+app.globalData.imageurl,
-          })
+          // wx.navigateTo({
+          //   url: '/pages/imageCrop/imageCrop?path='+app.globalData.imageurl,
+          // })
           const newtempFilePaths = that.data.urls.concat(tempFilePath);
           // 判断是否还能继续添加图片 
           

@@ -119,6 +119,7 @@ Page({
             imageSrc: a.tempFilePath,
             isShowBox: "N"
           }), t.loadImage(), "listDetail" == t.data.own && (t.changeListDeatil(a.tempFilePath),
+          app.globalData.imageurl=this.data.imageSrc,
             wx.navigateBack({
               delta: 1
             }));
@@ -156,10 +157,12 @@ Page({
   },
   jumpToNext: function (t) {
     
+    app.globalData.imageurl=t;
     
     wx.navigateTo({
-       url: "dist/image-picker/index?path="
+       url: "/pages/camera/index?path"
     });
+    
   },
   doChangeImage: function (t) {
     console.log("function:doChangeImage");
