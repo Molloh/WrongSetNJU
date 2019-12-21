@@ -1,7 +1,10 @@
-const app = getApp(); 
+import wxRequest from "../../api/common.js";
+const util = require("../../utils/util.js");
+const app = getApp();
 Page({
   data: {
     arr1: [],
+    arr2: [],
     items6: [{
       id: 1,
       name: '数学',
@@ -74,23 +77,16 @@ Page({
   }, 
 
   onLoadTap: function () {
-    if (this.data.currentKey==1){
+    if(this.data.currentKey==this.data.arr2.length){
       this.setData({
-        cata:"数学"
-      })
-    } else if (this.data.currentKey == 2) {
-      this.setData({
-        cata: "语文"
-      })
-    } else if (this.data.currentKey == 3) {
-      this.setData({
-        cata: "英语"
+        cata: this.data.tempcata
       })
     }else{
       this.setData({
-        cata:this.data.tempcata
+        cata: this.data.arr2[this.data.currentKey]
       })
     }
+    console.log(this.data.cata);
     // 获取当前openid
     let auth = wx.getStorageSync("openid")
     if (auth == '') {
@@ -158,7 +154,34 @@ Page({
   },
 
   onLoad: function (options) {
+    wxRequest({
+      url: 'wqs/categories',
+      
+      success: (res) => {
+        let tap = [];
+        console.log(res.data);
+        
+        for (var i=0;i<res.data.length;i++) {
+          
+          let tmp = {
+             id: i,
+            name: res.data[i],
+          }
 
+          tap.push(tmp);
+        }
+        let tmp1={
+          id:tap.length,
+          name:"其他"
+        }
+        tap.push(tmp1);
+        this.setData({
+          items6: tap,
+          arr2:res.data
+        })
+        console.log();
+      },
+    });
   },
 
 })

@@ -5,6 +5,14 @@
   align-items: center;
   justify-content: center;
 }
+.buttun-wrapper2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  
+}
 
 /* .img{
   width: 100rpx;

@@ -48,9 +48,9 @@
             </l-radio>
           </l-radio-group>
       </view>
-       <view class='buttun-wrapper'>
-        <l-textarea indicator="{{false}}" auto-height="{{false}}"  placeholder="其他类别..."
-        bind:lininput="onTextInput2"/>
+       <view class='buttun-wrapper2'>
+        <l-textarea1 indicator="{{false}}" auto-height="{{true}}"  placeholder="请输入类别..."
+        bind:lininput="onTextInput2" />
 
       </view>
      

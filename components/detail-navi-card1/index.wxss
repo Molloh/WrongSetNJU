@@ -22,7 +22,7 @@
 }
 
 .detail-icon {
-  width: 64rpx;
+  width: 72rpx;
   height: 72rpx;
 }
 
