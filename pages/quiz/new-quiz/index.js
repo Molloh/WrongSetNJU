@@ -81,9 +81,9 @@ Page({
     };
     console.log(this.data.wqs);
     wx.setStorageSync('tmp_quiz', currentQuiz);
-    // wx.navigateTo({
-    //   url: '../correct/index',
-    // })
+    wx.navigateTo({
+      url: '../correct/index',
+    })
   },
 
   // 根据问题更改对应的答案

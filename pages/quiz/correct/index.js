@@ -86,6 +86,7 @@ Page({
     }
     console.log(q_arr);
     const ts = (new Date()).valueOf();
+    let cate = this.data.category.split("，");
     wxRequest({
       url: 'quiz',
       method: 'POST',
@@ -96,7 +97,7 @@ Page({
         correct_arr: c_arr,
         date: ts,
         time_used: 300,
-        category: this.data.category
+        category: cate
       },
       success: res => {
         console.log("/pages/quiz/details/index?id=" + res.data._id);

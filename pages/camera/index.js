@@ -116,8 +116,12 @@ Page({
       }
     })
     wx.switchTab({
-      url: '/pages/wq/index',
-      
+      url: '../wq/index',
+      success: function (e) {
+        let page = getCurrentPages().pop();
+        if (page == undefined || page == null) return;
+        page.onLoad();
+      }
     })
   },
 
