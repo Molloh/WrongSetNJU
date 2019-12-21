@@ -93,7 +93,7 @@ Page({
       app.onLogin();
     }
     console.log(auth);
-    const ts = new Date().valueOf();
+    const ts = (new Date()).valueOf();
     // 上传错题信息
     wx.uploadFile({
       url: 'https://netwx.c-leon.top/api/wqs_file',
@@ -114,6 +114,10 @@ Page({
         const log = res.data;
         console.log(log);
       }
+    })
+    wx.switchTab({
+      url: '/pages/wq/index',
+      
     })
   },
 
