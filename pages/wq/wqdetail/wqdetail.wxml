@@ -23,7 +23,7 @@
       
     </view>
     <view class="content">
-     <text class="text">录入实践：{{date}}</text>
+     <text class="text">记录时间：{{date}}</text>
       
     </view>
   </l-card>
