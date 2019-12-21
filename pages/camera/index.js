@@ -92,8 +92,8 @@ Page({
     if (auth == '') {
       app.onLogin();
     }
-    console.log(auth);
-    const ts = (new Date()).valueOf();
+    const ts = Date.parse(new Date());
+    console.log(ts);
     // 上传错题信息
     wx.uploadFile({
       url: 'https://netwx.c-leon.top/api/wqs_file',
@@ -104,7 +104,7 @@ Page({
         'authorization': auth
       },
       formData: {
-        date: 1576570617,
+        date: ts,
         description: this.data.question,
         answer: this.data.answer,
         category: this.data.cata,
@@ -112,17 +112,18 @@ Page({
       },
       success:function(res){
         const log = res.data;
-        console.log(log);
+        console.log(res);
+        wx.switchTab({
+          url: '../wq/index',
+          success: function (e) {
+            let page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad();
+          }
+        })
       }
     })
-    wx.switchTab({
-      url: '../wq/index',
-      success: function (e) {
-        let page = getCurrentPages().pop();
-        if (page == undefined || page == null) return;
-        page.onLoad();
-      }
-    })
+    
   },
 
   onRemoveTap(e) {
