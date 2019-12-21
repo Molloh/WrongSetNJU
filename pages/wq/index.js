@@ -9,7 +9,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // id: 0,
-    icon: "/images/navigator/wq-select.png",
+    icon: "/images/wrongInput/wq.png",
     componentsPath: "/pages/wq/wqdetail/wqdetail",
     historyQuizzes: [
      
@@ -19,7 +19,7 @@ Page({
     wxRequest({
       url: 'wqs',
       data:{
-          dismissed:true
+          dismissed:false
       },
       method: "GET",
       success: (res) => {
