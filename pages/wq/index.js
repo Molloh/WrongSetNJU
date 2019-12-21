@@ -24,7 +24,16 @@ Page({
         console.log(res);
         for (let x of res.data.questions) {
           let date = util.formatTime(x.date);
-          let cpath = "/pages/wq/wqdetail/wqdetail?description=" + x.description + "&date=" + date + "&url=" + x.url + "&answer=" + x.answer + "&category=" + x.category;
+          let tmpstorage = {
+            description: x.description,
+            date: date,
+            url: x.url,
+            answer: x.answer,
+            category: x.category
+          }
+          let id = x._id;
+          wx.setStorageSync(id, tmpstorage);
+          let cpath = "/pages/wq/wqdetail/wqdetail?id=" + id;
           let desc;
           if(x.description)
             desc = x.description.substring(0, 11) + "...";
@@ -37,7 +46,6 @@ Page({
             answer: x.answer,
             category: x.category,
             componentsPath: cpath,
-
           }
           hisArr.push(tmp);
         }

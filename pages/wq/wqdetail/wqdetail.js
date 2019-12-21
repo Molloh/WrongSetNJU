@@ -17,12 +17,13 @@ Page({
   },
 
   onLoad: function (options) {
+    let opt = wx.getStorageSync(options.id);
     this.setData({
-      url: options.url,
-      category: options.category,
-      question: options.description,
-      answer: options.answer,
-      date: options.date
+      url: opt.url,
+      category: opt.category,
+      question: opt.description,
+      answer: opt.answer,
+      date: opt.date
     })
   },
 })

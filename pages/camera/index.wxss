@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 20rpx;
   
 }
@@ -100,7 +99,7 @@
 }
 
 .l-radio {
-  padding-left: 40rpx;
+  margin-left: 32rpx;
   box-sizing: border-box;
   color: rgba(140, 152, 174, 1) !important;
 }

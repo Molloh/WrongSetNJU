@@ -35,7 +35,7 @@
     >
       <view class='buttun-wrapper1'>
         
-          <l-radio-group l-class="l-radio-group" length="4" bind:linchange ="onChange"
+          <l-radio-group l-class="l-radio-group" bind:linchange ="onChange" l-class="l-gr"
           >
             <l-radio
               l-class="l-radio"
@@ -49,7 +49,7 @@
           </l-radio-group>
       </view>
        <view class='buttun-wrapper2'>
-        <l-textarea1 indicator="{{false}}" auto-height="{{true}}"  placeholder="请输入类别..."
+        <l-textarea width="690" indicator="{{false}}" auto-height="{{true}}"  placeholder="请输入类别..."
         bind:lininput="onTextInput2" />
 
       </view>
