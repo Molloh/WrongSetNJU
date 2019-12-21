@@ -1,10 +1,7 @@
 const app = getApp(); 
 Page({
-
   data: {
-    arr1: [
-      
-    ],
+    arr1: [],
     items6: [{
       id: 1,
       name: '数学',
@@ -28,11 +25,7 @@ Page({
   },
 
   onChange(e) {
-    const {
-      currentKey
-    } = {
-      ...e.detail
-    };
+    const { currentKey } = { ...e.detail };
     this.setData({
       currentKey
     });

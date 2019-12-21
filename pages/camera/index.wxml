@@ -56,7 +56,15 @@
      
   </content-card1> 
     <content-card1 name="提交错题" cardPadding="{{false}}">
-    <l-button size="long" bind:lintap="onLoadTap">提交</l-button>
+    <l-button 
+      l-class="my-button"     
+      icon="checked" 
+      icon-size="28" 
+      width="690"
+      height="100" 
+      bind:lintap="onLoadTap">
+      提交
+    </l-button>
   </content-card1>
   </content-title1>
     

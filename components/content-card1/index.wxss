@@ -3,7 +3,6 @@
   flex-direction: column;
   background-color: #fff;
   background: rgba(255, 255, 255, 1);
-  border-radius: 20rpx 20rpx 0px 0px;
 }
 
 .card-dot {
