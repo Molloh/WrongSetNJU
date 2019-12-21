@@ -35,6 +35,7 @@ Page({
             answer: x.answer,
             category: x.category,
             componentsPath: cpath,
+
           }
           hisArr.push(tmp);
         }
