@@ -39,6 +39,7 @@ App({
     imageurl:null,
     userInfo: null,
     openid: '',
+    uploadSuccess: false,
     prefix_url: "https://netwx.c-leon.top/api/"
   }
 })

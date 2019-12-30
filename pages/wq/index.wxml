@@ -21,7 +21,12 @@
       />
     </view>
   </view>
-  
+  <l-message  
+    content="{{content}}" 
+    type="{{type}}" 
+    duration="{{ duration}}" 
+    show="{{show}}" 
+  />
 </view>
 
   

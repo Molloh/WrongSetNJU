@@ -7,6 +7,7 @@
     "l-button": "/dist/button/index",
     "l-dialog": "/dist/dialog/index",
     "l-radio": "/dist/radio/index",
+    "l-message": "/dist/message/index",
     "l-radio-group": "/dist/radio-group/index",
     "l-count-selector": "/dist/count-selector/index",
     "quiz-card": "/components/quiz-card/index"

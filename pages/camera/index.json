@@ -11,6 +11,7 @@
     "l-radio": "/dist/radio/index",
     "l-loading": "/dist/loading/index",
     "l-input": "/dist/input/index",
+    "l-message": "/dist/message/index",
     "l-icon": "/dist/icon/index"
   }
 }

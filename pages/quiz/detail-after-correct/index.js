@@ -16,11 +16,22 @@ Page({
     wqs: []
   },
 
+  onReturn() {
+    wx.switchTab({
+      url: '../../quiz/index'
+    })
+  },
+
   onLoad: function (options) {
     let id = options.id;
     wxRequest({
       url: 'quiz/' + id,
       success: res => {
+        wx.lin.showMessage({
+          type: 'success',
+          duration: 1500,
+          content: '测验结果上传成功'
+        })
         let ques = [];
         let date = util.formatTime(res.data.date);
         let fromques = res.data.question_list;

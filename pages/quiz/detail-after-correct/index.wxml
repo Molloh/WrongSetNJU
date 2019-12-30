@@ -1,0 +1,32 @@
+<!--pages/quiz/old-quiz/index.wxml-->
+<content-title name="{{category}}" describe="{{desc}}">
+  <quiz-card 
+    wx:for="{{wqs}}"
+    wx:for-item="wq"
+    wx:key="id"
+    date="{{wq.date}}"
+    isCorrect="{{wq.isCorrect}}"
+    picture="{{wq.picture}}"
+    desc="{{wq.desc}}"
+    answer="{{wq.answer}}"
+    myAnswer="{{wq.myAnswer}}"
+  />
+
+  <l-button 
+    l-class="button" 
+    icon="forward" 
+    icon-size="28" 
+    width="690"
+    height="100"
+    bind:lintap="onReturn"
+  >
+    返回
+  </l-button>
+  <l-message  
+    content="{{content}}" 
+    type="{{type}}" 
+    duration="{{ duration}}" 
+    show="{{show}}" 
+  />
+</content-title>
+

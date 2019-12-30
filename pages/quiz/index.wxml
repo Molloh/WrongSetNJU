@@ -74,4 +74,10 @@
       </l-radio-group>
     </content-card>
   </l-dialog>
+  <l-message  
+    content="{{content}}" 
+    type="{{type}}" 
+    duration="{{ duration}}" 
+    show="{{show}}" 
+  />
 </view>

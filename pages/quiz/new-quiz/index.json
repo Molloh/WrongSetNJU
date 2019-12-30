@@ -2,6 +2,7 @@
   "usingComponents": {
     "content-title": "/components/content-title/index",
     "quiz-new-card": "/components/quiz-new-card/index",
+    "l-message": "/dist/message/index",
     "l-button": "/dist/button/index",
     "l-dialog": "/dist/dialog/index"
   }

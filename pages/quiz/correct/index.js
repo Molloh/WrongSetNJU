@@ -84,28 +84,42 @@ Page({
       else
         c_arr.push(0);
     }
-    console.log(q_arr);
     const ts = (new Date()).valueOf();
-    let cate = this.data.category.split("，");
-    wxRequest({
-      url: 'quiz',
-      method: 'POST',
-      data: {
-        is_corrected: 1,
-        question_arr: q_arr,
-        answer_arr: a_arr,
-        correct_arr: c_arr,
-        date: ts,
-        time_used: 300,
-        category: cate
-      },
-      success: res => {
-        console.log("/pages/quiz/details/index?id=" + res.data._id);
-        wx.navigateTo({
-          url: "/pages/quiz/details/index?id=" + res.data._id,
-        })
-      }
-    })
+    let cate = this.data.category.split("，")[0];
+    let flag = true;
+    for(let wq of wqs) {
+      if(wq.isCorrect == undefined)
+        flag = false;
+    }
+    if(flag) {
+      wx.showLoading({ title: '测验结果上传中…' });
+      wxRequest({
+        url: 'quiz',
+        method: 'POST',
+        data: {
+          is_corrected: 1,
+          question_arr: q_arr,
+          answer_arr: a_arr,
+          correct_arr: c_arr,
+          date: ts,
+          time_used: 300,
+          category: cate
+        },
+        success: res => {
+          wx.hideLoading();
+          console.log("/pages/quiz/detail-after-correct/index?id=" + res.data._id);
+          wx.navigateTo({
+            url: "/pages/quiz/detail-after-correct/index?id=" + res.data._id,
+          })
+        }
+      })
+    }else {
+      wx.lin.showMessage({
+        type: 'warning',
+        duration: 1500,
+        content: '尚有题目未批改！'
+      })
+    }
   },
 
   onCorrectWQ(e) {

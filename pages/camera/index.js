@@ -47,6 +47,12 @@ Page({
     console.log(this.data.photourl);
   },
 
+  removePicture() {
+    this.setData({
+      photourl: ""
+    })
+  },
+
   clear() {
     this.setData({
       clear: true
@@ -77,7 +83,11 @@ Page({
   }, 
 
   onLoadTap: function () {
-    if(this.data.currentKey==this.data.arr2.length){
+    if (this.data.currentKey == null) {
+      this.setData({
+        cata: ""
+      })
+    } else if(this.data.currentKey==this.data.arr2.length){
       this.setData({
         cata: this.data.tempcata
       })
@@ -86,48 +96,61 @@ Page({
         cata: this.data.arr2[this.data.currentKey]
       })
     }
-    console.log(this.data.cata);
     // 获取当前openid
     let auth = wx.getStorageSync("openid")
     if (auth == '') {
       app.onLogin();
     }
     const ts = Date.parse(new Date());
-    console.log(ts);
     // 上传错题信息
-    wx.uploadFile({
-      url: 'https://netwx.c-leon.top/api/wqs_file',
-      filePath: this.data.photourl,
-      name: 'file',
-      header: {
-        'content-type': 'multipart/form-data',
-        'authorization': auth
-      },
-      formData: {
-        date: ts,
-        description: this.data.question,
-        answer: this.data.answer,
-        category: this.data.cata,
-        dismissed: false,
-      },
-      success:function(res){
-        const log = res.data;
-        console.log(res);
-        wx.switchTab({
-          url: '../wq/index',
-          success: function (e) {
-            let page = getCurrentPages().pop();
-            if (page == undefined || page == null) return;
-            page.onLoad();
-          }
-        })
-      }
-    })
+    let flag = true;
+    if (this.data.photourl == "" || this.data.answer == "" || this.data.question == "" || this.data.cata == "") {
+      console.log(this.data);
+      flag = false;
+    }
+
+    if(flag) {
+      wx.showLoading({ title: '错题上传中…' });
+      wx.uploadFile({
+        url: 'https://netwx.c-leon.top/api/wqs_file',
+        filePath: this.data.photourl,
+        name: 'file',
+        header: {
+          'content-type': 'multipart/form-data',
+          'authorization': auth
+        },
+        formData: {
+          date: ts,
+          description: this.data.question,
+          answer: this.data.answer,
+          category: this.data.cata,
+          dismissed: false,
+        },
+        success:function(res){
+          const log = res.data;
+          wx.switchTab({
+            url: '../wq/index',
+            success: function (e) {
+              wx.hideLoading();
+              app.globalData.uploadSuccess = true;
+              let page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
+          })
+        }
+      })
+    }else {
+      wx.lin.showMessage({
+        type: 'warning',
+        duration: 1500,
+        content: '尚有信息未填写！'
+      })
+    }
     
   },
 
   onRemoveTap(e) {
-    console.log(e)
     const index = e.detail.index
     wx.lin.showMessage({
       type: 'error',
@@ -138,7 +161,6 @@ Page({
   },
 
   onPreviewTap(e) {
-    console.log(e.detail)
   },
 
   onTextInput(e) {
@@ -167,16 +189,12 @@ Page({
       url: 'wqs/categories',
       
       success: (res) => {
-        let tap = [];
-        console.log(res.data);
-        
+        let tap = [];        
         for (var i=0;i<res.data.length;i++) {
-          
           let tmp = {
-             id: i,
+            id: i,
             name: res.data[i],
           }
-
           tap.push(tmp);
         }
         let tmp1={
@@ -186,11 +204,14 @@ Page({
         tap.push(tmp1);
         this.setData({
           items6: tap,
-          arr2:res.data
+          arr2:res.data,
         })
-        console.log();
       },
     });
+  },
+
+  onShow() {
+    this.onLoad();
   },
 
 })

@@ -17,11 +17,8 @@ Page({
   onShow: function (options) {
     wxRequest({
       url: 'wqs',
-
-      
       success: (res) => {
         let hisArr = [];
-        console.log(res);
         for (let x of res.data.questions) {
           let date = util.formatTime(x.date);
           let tmpstorage = {
@@ -51,42 +48,20 @@ Page({
         }
         this.setData({
           historyQuizzes: hisArr
-        })
-        console.log(hisArr);
+        });
+        if(app.globalData.uploadSuccess) {
+          wx.lin.showMessage({
+            type: 'success',
+            duration: 1500,
+            content: '错题上传成功'
+          });
+          app.globalData.uploadSuccess = false;
+        }
       },
     });
   },
-
-  // onLoad: function (options) {
-  //   wxRequest({
-  //     url: 'wqs',
-  //     method:"GET",
-  //     success: (res) => {
-  //       let hisArr = [];
-  //       console.log(res);
-  //       for (let x in res.data.questions) {
-          
-  //         let tmp = {
-  //           id:x._id,
-  //           description:x.description,
-  //           date:x.date,
-  //           url:x.url,
-  //           answer:x.answer,
-  //           category:x.category,
-  //           componentsPath: "/pages/wq/wqdetail/wqdetail?descrpition=" +x.description+"&date="+x.date+"&url="+x.url+"&answer="+x.answer+"&category="+x.category+"&id="+x._id,
-  //         }
-  //         hisArr.push(tmp);
-  //       }
-  //       this.setData({
-  //         historyQuizzes:hisArr
-  //       })
-  //       console.log(hisArr);
-  //     },
-  //   });
-  // },
   
   getUserInfo: function (e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

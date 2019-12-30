@@ -38,3 +38,10 @@
     confirm-color="{{currentConf.confirmColor}}"
     bind:linconfirm="onConfirmSubmit"
   />
+
+  <l-message  
+    content="{{content}}" 
+    type="{{type}}" 
+    duration="{{ duration}}" 
+    show="{{show}}" 
+  />

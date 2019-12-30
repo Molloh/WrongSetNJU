@@ -9,6 +9,7 @@
     "l-radio": "/dist/radio/index",
     "l-radio-group": "/dist/radio-group/index",
     "l-count-selector": "/dist/count-selector/index",
+    "l-message": "/dist/message/index",
     "quiz-card1": "/components/quiz-card1/index"
   }
 }

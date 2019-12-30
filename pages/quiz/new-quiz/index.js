@@ -34,6 +34,19 @@ Page({
       success: res => {
         let ques = [];
         let fromques = res.data.questions;
+        if(options.num > fromques.length) {
+          wx.lin.showMessage({
+            type: 'primary',
+            duration: 1500,
+            content: '测验开始，题库数量不足'
+          })
+        }else {
+          wx.lin.showMessage({
+            type: 'success',
+            duration: 1500,
+            content: '测验开始，科目：' + options.category
+          })
+        }
         for (let i = 0; i < fromques.length; i ++) {
           let tmp = {
             id: i,
@@ -48,7 +61,6 @@ Page({
           }
           ques.push(tmp);
         }
-        console.log(ques);
         this.setData({
           wqs: ques
         });
@@ -79,7 +91,6 @@ Page({
       date: this.data.date,
       wqs: this.data.wqs
     };
-    console.log(this.data.wqs);
     wx.setStorageSync('tmp_quiz', currentQuiz);
     wx.navigateTo({
       url: '../correct/index',
